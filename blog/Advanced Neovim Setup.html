@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark" />
+    <meta name="generator" content="Marmite" />
+    
+<meta property="og:title" content="tags:: technical, guides, review">
+
+<meta property="og:description" content="description:: Setting Up neovim with advanced configs.
+#Blog Posts
+
+LATER [#B] I will publish this a...">
+
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Home">
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/Advanced Neovim Setup.html"
+    },
+    "url": "/Advanced Neovim Setup.html",
+    "headline": "tags:: technical, guides, review",
+    "description": "description:: Setting Up neovim with advanced configs.
+#Blog Posts
+
+LATER [#B] I will publish this after tweaking and adding the configurati...",
+    
+    
+    "publisher": {
+        "@type": "Organization",
+        "name": "Home",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/"
+        }
+    },
+    
+}
+</script>
+
+
+    <title>tags:: technical, guides, review | Home</title>
+    <link rel="stylesheet" type="text/css" href="/static/pico.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/marmite.css">
+    
+    <link rel="stylesheet" type="text/css" href="/static/custom.css">
+    
+
+<link rel="stylesheet" href="/static/arborium.css" />
+
+
+
+
+        <link rel="alternate" type="application/rss+xml" title="index" href="/index.rss">
+    
+
+    
+
+    
+    
+</head>
+<body>
+    
+    <main class="container">
+        
+        <header class="header-content">
+            <nav class="header-nav">
+                <ul class="header-name">
+                    <li>
+                        <hgroup class="h-card">
+                            <h2>
+                                <a href="/" class="contrast p-name u-url">
+                                    
+                                        Home
+                                    
+                                </a>
+                            </h2>
+                            
+                        </hgroup>
+                    </li>
+                </ul>
+                <button id="menu-toggle" class="hamburger">&#9776;</button>
+
+                <ul class="header-menu" id="header-menu">
+                    
+                      
+                      
+                    <li>
+                        
+                        <a class="menu-item secondary"  href="/tags.html">Tags</a>
+                        
+                    </li>
+                    
+                      
+                      
+                    <li>
+                        
+                        <a class="menu-item secondary"  href="/archive.html">Archive</a>
+                        
+                    </li>
+                    
+                      
+                      
+                    <li>
+                        
+                        <a class="menu-item secondary"  href="/authors.html">Authors</a>
+                        
+                    </li>
+                    
+                    
+                    
+                    <div class="underline"></div>
+                </ul>
+            </nav>
+            
+        </header>
+        
+        <section class="main-content">
+            
+
+
+
+<article class="h-entry">
+  <data class="p-name" value="tags:: technical, guides, review"></data>
+  <a class="u-url" href="/Advanced Neovim Setup.html" style="display: none;"></a>
+  
+
+  
+
+  
+
+
+<div class="content-title" id="title">
+    <h1>tags:: technical, guides, review</h1> 
+    
+
+
+<span class="content-date">
+    <small></small>
+</span>
+
+</div>
+
+  
+  
+
+  <div class="content-html e-content"><p>description:: Setting Up neovim with advanced configs.
+#<a href="blog-posts.html" data-wikilink="true">Blog Posts</a></p>
+<ul>
+<li>LATER [#B] <em><u>I will publish this after tweaking and adding the configuration after completion some day because it is not yet completeand there are hyprlinks to be added</u></em></li>
+<li>When I first came into the world of neovim and started tweaking it, I found so many things that weren't mentioned clearly and specifically, I grew and passed myself through so many pitfalls(and believe me, there are a lot of them) that now if someone would say me to rewrite my config, I can do it. It is now in my veins. The beauty of this setup is that it is an ever changing landscape, so things changed very fastly.  I too followed basic setup tutorials and blog posts for setting up my config, but to be frank, it never felt like me, I changed things up but at sometime or the other, things would just break(once lsp setup did, then the theme had few issue, I was a novice, don't judge !) and I would end up writing the whole config again.  Throughout this amazing struggle I always felt the need of an advanced setup, which to be frank, they were not available anywhere. Hence, I created this series of configuration blogs. When I grew with neovim, I took bits and pieces from here and there, understood the code and combined to make my config. I don't want this for anyone else. There was no common archive where things would sum up. I saw people updating their blogs yearly to maintain relevency, single config transformed into various lua files, null-ls was changed by conform and mason, blogs changed but just the bare minimum to maintain relevent, I will try my best to maintain this series too, but I don't promise. Someday, it will also become autdated, people will move on and so will I, So sit back and read the making of an IDE.</li>
+<li>
+<h4><a href="#disclaimer" aria-hidden="true" class="anchor" id="disclaimer"></a>Disclaimer!!</h4>
+This is not your CV selection process and I don't care if it matches with the writing style of the world, I wouldn't be telling things fast, I wouldn't be writing bullet points to be concise. If you want a quick setup, go away, if you want things to just work without understanding what they do, go away, if you think this blog is not your type, go away!!<br />
+I grew with neovim in my screen I airn't be hurrying, it is an archieve/journey or whatever you may like to call it. And I should say that this blog will tell the basic setup, but it is not stopping there only, actually you can also think of it as a course.<br />
+I will tell how I did the things, I will also discuss alternatives whereever necessary to do so, you can follow to setup or branch off from references to make your config, the software is all yours.</li>
+<li>
+<h2><a href="#learn-lua" aria-hidden="true" class="anchor" id="learn-lua"></a>Learn Lua!!</h2>
+I am not going to lie, and if you have gather the courage to read past that disclaimer, I am also  not going to send you away. When I started customizing lua, I hadn't even started coding. See, this the magic, you might have thought, at least that you want to get into using neovim because you love the concept, when I started, I didn't even properly knew that I would only be using it if I am thinking to code some day, yet just the idea of having such a good piece of software inside a terminal was enough to encourage me to play around with it, and it's what drived me into using <a href="tui-apps.html" data-wikilink="true">TUI apps</a> for almost all of my work. So, as a matter of fact, if you don't no lua, just see simply the basics of lua (ADD LINK) just so that you can start getting a better sense of this or <strong>else</strong> get ready to make your hands dirty.</li>
+<li>
+<h2><a href="#installing-neovim" aria-hidden="true" class="anchor" id="installing-neovim"></a>Installing Neovim</h2>
+Obviously, as you have seen the software somewhere, maybe downloaded it too, if not you can do so by following the official instructions(Add link) or even better, build it from source.(ADD LINK)
+<blockquote>
+<p>I find it of extreme importance that you should always be aware of a few things you are using. So, welcome to the history class, oh no no, I wouldn't be teaching it all day.So, vi is one of the primitive text editors which came into existance somewhere near the creation of linux itself, It was later improved by (ADD NAME), into vim, which further had a descendant named Neovim, what's the difference? Just the extension of capabilities, in vim and later addition of lua programming language to manage configuration better and more robustly in neovim rather than using Vimscript for the purpose.</p>
+</blockquote>
+</li>
+</ul>
+</div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </section>
+        
+        <footer class="footer-content grid">
+            <div>Powered by <a href="https://github.com/rochacbruno/marmite">Marmite</a> | <small><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC-BY_NC-SA</a></small></div>
+            
+        </footer>
+        
+    </main>
+
+    <script src="/static/marmite.js"></script>
+    <script src="/static/custom.js"></script>
+    
+    
+    
+    
+
+
+</body>
+</html>

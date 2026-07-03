@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark" />
+    <meta name="generator" content="Marmite" />
+    
+<meta property="og:title" content="public:: true">
+
+<meta property="og:description" content="tags:: web-dev
+description:: Part two of covering questions as newcomer to react and Nextjs.
+lang:: ...">
+
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Home">
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/Over the head questions about React, NextJS and Javascript%3A Part-2.html"
+    },
+    "url": "/Over the head questions about React, NextJS and Javascript%3A Part-2.html",
+    "headline": "public:: true",
+    "description": "tags:: web-dev
+description:: Part two of covering questions as newcomer to react and Nextjs.
+lang:: js, html
+#Blog Posts
+
+Why are images and...",
+    
+    
+    "publisher": {
+        "@type": "Organization",
+        "name": "Home",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/"
+        }
+    },
+    
+}
+</script>
+
+
+    <title>public:: true | Home</title>
+    <link rel="stylesheet" type="text/css" href="/static/pico.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/marmite.css">
+    
+    <link rel="stylesheet" type="text/css" href="/static/custom.css">
+    
+
+<link rel="stylesheet" href="/static/arborium.css" />
+
+
+
+
+        <link rel="alternate" type="application/rss+xml" title="index" href="/index.rss">
+    
+
+    
+
+    
+    
+</head>
+<body>
+    
+    <main class="container">
+        
+        <header class="header-content">
+            <nav class="header-nav">
+                <ul class="header-name">
+                    <li>
+                        <hgroup class="h-card">
+                            <h2>
+                                <a href="/" class="contrast p-name u-url">
+                                    
+                                        Home
+                                    
+                                </a>
+                            </h2>
+                            
+                        </hgroup>
+                    </li>
+                </ul>
+                <button id="menu-toggle" class="hamburger">&#9776;</button>
+
+                <ul class="header-menu" id="header-menu">
+                    
+                      
+                      
+                    <li>
+                        
+                        <a class="menu-item secondary"  href="/tags.html">Tags</a>
+                        
+                    </li>
+                    
+                      
+                      
+                    <li>
+                        
+                        <a class="menu-item secondary"  href="/archive.html">Archive</a>
+                        
+                    </li>
+                    
+                      
+                      
+                    <li>
+                        
+                        <a class="menu-item secondary"  href="/authors.html">Authors</a>
+                        
+                    </li>
+                    
+                    
+                    
+                    <div class="underline"></div>
+                </ul>
+            </nav>
+            
+        </header>
+        
+        <section class="main-content">
+            
+
+
+
+<article class="h-entry">
+  <data class="p-name" value="public:: true"></data>
+  <a class="u-url" href="/Over the head questions about React, NextJS and Javascript%3A Part-2.html" style="display: none;"></a>
+  
+
+  
+
+  
+
+
+<div class="content-title" id="title">
+    <h1>public:: true</h1> 
+    
+
+
+<span class="content-date">
+    <small></small>
+</span>
+
+</div>
+
+  
+  
+
+  <div class="content-html e-content"><p>tags:: web-dev
+description:: Part two of covering questions as newcomer to react and Nextjs.
+lang:: js, html
+#<a href="blog-posts.html" data-wikilink="true">Blog Posts</a></p>
+<ul>
+<li>Why are images and fonts served as static assets, and how does this improve loading performance?
+logseq.order-list-type:: number</li>
+<li>How does Next.js <code>&lt;Link&gt;</code> enable navigation without a full page reload? What is client-side routing?
+logseq.order-list-type:: number</li>
+<li>How do React hooks like <code>useState</code> and <code>useEffect</code> work conceptually under the hood?
+logseq.order-list-type:: number</li>
+<li>Why does running logic on the server in Next.js reduce the surface area for security vulnerabilities?
+logseq.order-list-type:: number</li>
+<li>What are Server Actions in Next.js, and how do they simplify server-side mutations?
+logseq.order-list-type:: number</li>
+<li>
+<h2><a href="#how-do-i-understand-this-nextjs-page-function-signature-and-inline-typescript-type-logseqorder-list-type-number" aria-hidden="true" class="anchor" id="how-do-i-understand-this-nextjs-page-function-signature-and-inline-typescript-type-logseqorder-list-type-number"></a>How do I understand this Next.js Page function signature and inline TypeScript type?
+logseq.order-list-type:: number</h2>
+<pre class="marmite-code"><code class="marmite-code-inner">```js
+export default async function Page(props: {
+  searchParams?: Promise&lt;{
+    query?: string;
+    page?: string;
+  }&gt;;
+}) {
+  const searchParams = await props.searchParams;
+  const query = searchParams?.query || &quot;&quot;;
+  const currentPage = Number(searchParams?.page) || 1;
+	// Reamining code
+}
+```
+</code></pre>
+</li>
+</ul>
+</div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </section>
+        
+        <footer class="footer-content grid">
+            <div>Powered by <a href="https://github.com/rochacbruno/marmite">Marmite</a> | <small><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC-BY_NC-SA</a></small></div>
+            
+        </footer>
+        
+    </main>
+
+    <script src="/static/marmite.js"></script>
+    <script src="/static/custom.js"></script>
+    
+    
+    
+    
+
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+{
+  "posts": [
+    "/hello-world.html"
+  ],
+  "pages": [
+    "/Advanced Neovim Setup.html",
+    "/My Journey to FOSS World.html",
+    "/Why LTS releases sucks and how I became a power user.html",
+    "/Blog Posts.html",
+    "/Over the head questions about React, NextJS and Javascript%3A Part-2.html",
+    "/theoritical-writeups.html",
+    "/Pains and Perks of Meta programming.html",
+    "/Over the head questions about React, Nextjs and Javascript%3A Part-1.html",
+    "/Make your first widget with Spell.html",
+    "/Frame rate improvement for faster rendering.html",
+    "/Hardened Scopes%3A A mental model for rust.html",
+    "/Beauties Of C.html",
+    "/My thought on Web Technology.html",
+    "/The crazy syntax of rust.html",
+    "/unpublished___first_blog.html",
+    "/contents.html",
+    "/unpublished.html",
+    "/pages.html"
+  ],
+  "tags": [
+    "/tag-hello.html",
+    "/tag-world.html",
+    "/tags.html"
+  ],
+  "authors": [],
+  "series": [],
+  "streams": [
+    "/streams.html"
+  ],
+  "archives": [
+    "/archive-2024.html",
+    "/archive.html"
+  ],
+  "feeds": [
+    "/index.rss",
+    "/tag-hello.rss",
+    "/tag-world.rss",
+    "/archive-2024.rss"
+  ],
+  "pagination": [
+    "/pages-1.html",
+    "/pages-2.html",
+    "/tag-hello-1.html",
+    "/tag-world-1.html",
+    "/archive-2024-1.html"
+  ],
+  "file_mappings": [],
+  "misc": [
+    "/index.html"
+  ],
+  "summary": {
+    "posts": 1,
+    "pages": 18,
+    "tags": 3,
+    "authors": 0,
+    "series": 0,
+    "streams": 1,
+    "archives": 2,
+    "feeds": 4,
+    "pagination": 5,
+    "file_mappings": 0,
+    "misc": 1,
+    "total": 35,
+    "meta": {
+      "url": "",
+      "absolute_urls": false
+    }
+  }
+}

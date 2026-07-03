@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark" />
+    <meta name="generator" content="Marmite" />
+    
+<meta property="og:title" content="public:: false">
+
+<meta property="og:description" content="
+I remember listening to DHH(Creator of Ruby On Rails) mentioning meta-programming in a conversation...">
+
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Home">
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/Pains and Perks of Meta programming.html"
+    },
+    "url": "/Pains and Perks of Meta programming.html",
+    "headline": "public:: false",
+    "description": "I remember listening to DHH(Creator of Ruby On Rails) mentioning meta-programming in a conversation. The first time he explained the con
+
+  ...",
+    
+    
+    "publisher": {
+        "@type": "Organization",
+        "name": "Home",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/"
+        }
+    },
+    
+}
+</script>
+
+
+    <title>public:: false | Home</title>
+    <link rel="stylesheet" type="text/css" href="/static/pico.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/marmite.css">
+    
+    <link rel="stylesheet" type="text/css" href="/static/custom.css">
+    
+
+<link rel="stylesheet" href="/static/arborium.css" />
+
+
+
+
+        <link rel="alternate" type="application/rss+xml" title="index" href="/index.rss">
+    
+
+    
+
+    
+    
+</head>
+<body>
+    
+    <main class="container">
+        
+        <header class="header-content">
+            <nav class="header-nav">
+                <ul class="header-name">
+                    <li>
+                        <hgroup class="h-card">
+                            <h2>
+                                <a href="/" class="contrast p-name u-url">
+                                    
+                                        Home
+                                    
+                                </a>
+                            </h2>
+                            
+                        </hgroup>
+                    </li>
+                </ul>
+                <button id="menu-toggle" class="hamburger">&#9776;</button>
+
+                <ul class="header-menu" id="header-menu">
+                    
+                      
+                      
+                    <li>
+                        
+                        <a class="menu-item secondary"  href="/tags.html">Tags</a>
+                        
+                    </li>
+                    
+                      
+                      
+                    <li>
+                        
+                        <a class="menu-item secondary"  href="/archive.html">Archive</a>
+                        
+                    </li>
+                    
+                      
+                      
+                    <li>
+                        
+                        <a class="menu-item secondary"  href="/authors.html">Authors</a>
+                        
+                    </li>
+                    
+                    
+                    
+                    <div class="underline"></div>
+                </ul>
+            </nav>
+            
+        </header>
+        
+        <section class="main-content">
+            
+
+
+
+<article class="h-entry">
+  <data class="p-name" value="public:: false"></data>
+  <a class="u-url" href="/Pains and Perks of Meta programming.html" style="display: none;"></a>
+  
+
+  
+
+  
+
+
+<div class="content-title" id="title">
+    <h1>public:: false</h1> 
+    
+
+
+<span class="content-date">
+    <small></small>
+</span>
+
+</div>
+
+  
+  
+
+  <div class="content-html e-content"><ul>
+<li>I remember listening to DHH(Creator of Ruby On Rails) mentioning meta-programming in a conversation. The first time he explained the con</li>
+<li>
+<pre class="marmite-code"><code class="marmite-code-inner">   Compiling young-shell v0.1.0 (/home/ramayen/Documents/projects/Young-Shell)kljkhjjhgjghfcjkjkjhklhkjkv,koogfhgcxhjkfkljjhjgvcgjkmjhiyulijhm,bhcv
+warning: static `SLINT_EMBEDDED_RESOURCE_8` is never used
+     --&gt; /home/ramayen/Documents/projects/Young-Shell/target/debug/build/young-shell-2a829b327dc2ec24/out/app-window.rs:61344:13
+      |
+61344 |      static SLINT_EMBEDDED_RESOURCE_8 : &amp; 'static [u8] = :: core :: include_bytes ! (&quot;/home/ramayen/Documents/projects/You...
+      |             ^^^^^^^^^^^^^^^^^^^^^^^^^
+      |
+      = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused `Result` that must be used
+  --&gt; src/bin/ex_mac_spell.rs:32:13
+   |
+32 |     let _ = spell_framework::cast_spell!(ui);
+   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: this `Result` may be an `Err` variant, which should be handled
+   = note: `#[warn(unused_must_use)]` (part of `#[warn(unused)]`) on by default
+help: use `let _ = ...` to ignore the resulting value
+   |
+32 |     let _ = let _ = spell_framework::cast_spell!(ui);
+   |             +++++++
+
+warning: `young-shell` (bin &quot;ex_mac_spell&quot;) generated 2 warnings
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 11.45s
+</code></pre>
+</li>
+<li>Explain how weird errors like above happen.</li>
+<li>explain how recursive macro calls can happen.</li>
+<li>cargo expand works.</li>
+<li>Hoiw Lsp doesn't come for your help. Maybe also research and explain how this experience can be improved.</li>
+</ul>
+</div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </section>
+        
+        <footer class="footer-content grid">
+            <div>Powered by <a href="https://github.com/rochacbruno/marmite">Marmite</a> | <small><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC-BY_NC-SA</a></small></div>
+            
+        </footer>
+        
+    </main>
+
+    <script src="/static/marmite.js"></script>
+    <script src="/static/custom.js"></script>
+    
+    
+    
+    
+
+
+</body>
+</html>
