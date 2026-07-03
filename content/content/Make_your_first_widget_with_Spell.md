@@ -1,5 +1,6 @@
   id:: 68bc04cb-a892-46b1-a6ff-39386aa03637
   public:: true
+  date:: 2026-02-15
   tags:: tutorial
   description:: Make your first widget with spell and slint for desktop linux.
   lang:: rust, slint

@@ -1,5 +1,6 @@
   id:: 68480561-09fa-4f92-afd2-e45b8d9a5b15
   public:: true
+  date:: 2025-11-06
   tags:: theoretical-writeups
   description:: Describing a mental model to be used when working with rust.
   lang:: rust

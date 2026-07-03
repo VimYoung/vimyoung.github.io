@@ -1,0 +1,8 @@
+name: Blog posts by VimYoung
+tagline: Coding as a path to peace.
+pagination: 10
+menu:
+  - ["about", "about.html"]
+  - ["pages", "pages.html"]
+  - ["tags", "tags.html"]
+  - ["archive", "archive.html"]

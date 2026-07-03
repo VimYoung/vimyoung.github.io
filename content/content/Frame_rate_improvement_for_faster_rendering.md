@@ -1,5 +1,6 @@
   id:: 68ae71d1-d38e-4cd9-8499-47eda5c8f23a
   public:: true
+  date:: 2025-12-10
   tags:: theoretical-writeups, technical
   description:: Performance improvement for frame rendering in my library
   lang:: rust

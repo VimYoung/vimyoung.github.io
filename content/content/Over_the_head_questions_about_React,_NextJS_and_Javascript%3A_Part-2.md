@@ -1,4 +1,5 @@
   public:: true
+  date:: 2026-05-22
   tags:: web-dev
   description:: Part two of covering questions as newcomer to react and Nextjs.
   lang:: js, html

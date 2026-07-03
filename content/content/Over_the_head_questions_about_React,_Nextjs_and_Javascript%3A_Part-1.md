@@ -1,5 +1,6 @@
   id:: 6931ab34-aad0-4894-8d44-3c07d3da0924
   public:: true
+  date:: 2026-04-19
   tags:: web-dev
   description:: In this blog post I go along misconceptions and confusions I had when learning react, Nextjs and Javascript.
   lang:: js, html
