@@ -3,11 +3,10 @@
 # requires-python = ">=3.9"
 # dependencies = [
 #     "pyyaml",
-#     "toml",
 # ]
 # ///
 """
-Convert Logseq page-property blocks into proper YAML or TOML frontmatter.
+Convert Logseq page-property blocks into proper YAML frontmatter.
 
 Logseq stores page metadata as the first block of a page, using
 `key:: value` syntax, e.g.
@@ -18,19 +17,14 @@ Logseq stores page metadata as the first block of a page, using
     - Actual content starts here...
 
 This script pulls those `key:: value` lines out and turns them into a
-frontmatter block that pandoc (and static site generators like Jekyll,
-Hugo, Zola, etc.) can read.
+YAML frontmatter block that pandoc (and static site generators like
+Marmite, Jekyll, Hugo, Zola, etc.) can read.
+
+Outline bullets are always flattened (one level stripped), and filenames
+always have whitespace collapsed into underscores.
 
 Usage:
-    pip install pyyaml toml
-    python logseq_to_frontmatter.py ./logseq/pages ./converted --format yaml --flatten
-
-Then, optionally, normalize the markdown body with pandoc (it preserves
-YAML frontmatter across markdown->markdown conversions):
-
-    for f in converted/*.md; do
-        pandoc "$f" -f markdown -t markdown --wrap=preserve -o "$f"
-    done
+    uv run logseq_to_frontmatter.py content --in-place
 """
 
 import argparse
@@ -40,15 +34,13 @@ from typing import Optional
 
 import yaml  # pip install pyyaml
 
-try:
-    import toml  # pip install toml
-except ImportError:
-    toml = None
-
 PROP_RE = re.compile(r"^([A-Za-z][A-Za-z0-9_-]*)::\s*(.*)$")
 
-# Keys whose values should become a YAML/TOML list when comma-separated
+# Keys whose values should become a YAML list when comma-separated
 LIST_KEYS = {"tags", "aliases", "categories", "authors"}
+
+# Logseq-internal keys that should never end up in the site's frontmatter
+DROP_KEYS = {"id"}
 
 
 def parse_properties(lines):
@@ -77,10 +69,10 @@ def parse_properties(lines):
 
 def strip_top_level_bullet(lines):
     """
-    Logseq's body is one big bulleted outline. Many SSGs expect flat
-    markdown, so this removes a single leading '- ' (and matching 2-space
-    indent) from every line, one level only. Deeper nesting is left intact
-    so sub-bullets still render as lists.
+    Logseq's body is one big bulleted outline. Static site generators expect
+    flat markdown, so this removes a single leading '- ' (and matching
+    2-space indent) from every line, one level only. Deeper nesting is left
+    intact so sub-bullets still render as lists.
     """
     out = []
     for line in lines:
@@ -93,34 +85,86 @@ def strip_top_level_bullet(lines):
     return out
 
 
-def build_frontmatter(props, fmt):
+def build_frontmatter(props: dict) -> str:
     if not props:
         return ""
-    if fmt == "yaml":
-        body = yaml.safe_dump(props, sort_keys=False, allow_unicode=True)
-        return f"---\n{body}---\n\n"
-    else:  # toml
-        if toml is None:
-            raise SystemExit("TOML output requires: pip install toml")
-        body = toml.dumps(props)
-        return f"+++\n{body}+++\n\n"
+    body = yaml.safe_dump(props, sort_keys=False, allow_unicode=True)
+    return f"---\n{body}---\n\n"
 
 
-def already_has_frontmatter(lines) -> bool:
-    """Idempotency check: skip files that already start with --- or +++."""
-    for line in lines:
-        stripped = line.strip()
-        if stripped == "":
-            continue
-        return stripped in ("---", "+++")
-    return False
+def apply_public_convention(props: dict) -> None:
+    """
+    Logseq convention: `public:: false` marks a page as not-for-publishing.
+    Marmite convention: `stream: draft` excludes a post from feeds/search/lists.
+
+    - public:: false  -> drop `public`, add `stream: draft`
+    - public:: true   -> drop `public` (nothing further needed, it's public by default)
+    """
+    for key in list(props.keys()):
+        if key.lower() == "public":
+            value = str(props.pop(key)).strip().lower()
+            if value == "false":
+                props["stream"] = "draft"
 
 
-def convert_file(path: Path, out_path: Path, fmt: str, flatten: bool) -> bool:
+def detect_and_clean_frontmatter(lines):
+    """
+    Inspect a possible leading --- fence.
+
+    Returns (is_real_frontmatter, cleaned_lines).
+
+    A fence only counts as real, already-converted frontmatter if its
+    content parses as a non-empty mapping AND none of its keys themselves
+    end in a colon. That second check matters because Logseq's
+    `id:: some-uuid` syntax is, unfortunately, ALSO valid YAML - it parses
+    as {'id:': 'some-uuid'} - so a stray/broken '---'-wrapped Logseq
+    property would otherwise be mistaken for genuine frontmatter and
+    silently skipped forever.
+
+    If a fence is found but doesn't look real, the fence markers are
+    stripped (contents kept in place) so the enclosed lines can be
+    re-parsed as normal Logseq properties instead of being lost.
+    """
+    i = 0
+    while i < len(lines) and lines[i].strip() == "":
+        i += 1
+    if i >= len(lines):
+        return False, lines
+
+    if lines[i].strip() != "---":
+        return False, lines
+
+    for j in range(i + 1, len(lines)):
+        if lines[j].strip() == "---":
+            block = "".join(lines[i + 1 : j])
+            try:
+                parsed = yaml.safe_load(block)
+            except Exception:
+                parsed = None
+
+            looks_real = (
+                isinstance(parsed, dict)
+                and len(parsed) > 0
+                and not any(str(k).rstrip().endswith(":") for k in parsed.keys())
+            )
+
+            if looks_real:
+                return True, lines
+
+            # Stray/broken fence - strip the markers, keep enclosed content
+            # so it gets a chance to be parsed as real Logseq properties.
+            cleaned = lines[:i] + lines[i + 1 : j] + lines[j + 1 :]
+            return False, cleaned
+
+    return False, lines  # opening fence with no closing fence - leave as-is
+
+
+def convert_file(path: Path, out_path: Path) -> bool:
     """Convert one file. Returns True if it was converted, False if skipped."""
     lines = path.read_text(encoding="utf-8").splitlines(keepends=True)
 
-    if already_has_frontmatter(lines):
+    is_real_frontmatter, lines = detect_and_clean_frontmatter(lines)
+    if is_real_frontmatter:
         return False
 
     props, rest = parse_properties(lines)
@@ -128,26 +172,59 @@ def convert_file(path: Path, out_path: Path, fmt: str, flatten: bool) -> bool:
         # No Logseq property block found - nothing to do.
         return False
 
-    if flatten:
-        rest = strip_top_level_bullet(rest)
+    for key in list(props.keys()):
+        if key.lower() in DROP_KEYS:
+            del props[key]
 
-    new_text = build_frontmatter(props, fmt) + "".join(rest)
+    apply_public_convention(props)
+
+    rest = strip_top_level_bullet(rest)
+
+    new_text = build_frontmatter(props) + "".join(rest)
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(new_text, encoding="utf-8")
     return True
 
 
-def convert_path(
-    src: Path,
-    fmt: str,
-    flatten: bool,
-    dest: Optional[Path] = None,
-    recursive: bool = True,
-) -> int:
+def sanitize_filename(name: str) -> str:
+    """Replace any run of whitespace in a filename's stem with a single underscore."""
+    p = Path(name)
+    new_stem = re.sub(r"\s+", "_", p.stem.strip())
+    return f"{new_stem}{p.suffix}"
+
+
+def process_file(src_path: Path, out_path: Path) -> dict:
+    """
+    Convert one file's content (if it has a Logseq property block) and
+    normalize its filename (whitespace -> underscore), in that order.
+    Returns {"converted": bool, "final_path": Path, "renamed_from": Optional[Path]}.
+    """
+    converted = convert_file(src_path, out_path)
+
+    final_path = out_path
+    renamed_from = None
+    sanitized_name = sanitize_filename(out_path.name)
+    if sanitized_name != out_path.name:
+        candidate = out_path.parent / sanitized_name
+        if candidate.exists() and candidate != out_path:
+            print(f"[warning] rename target already exists, skipping: {candidate}")
+        else:
+            out_path.rename(candidate)
+            final_path = candidate
+            renamed_from = out_path
+
+    return {
+        "converted": converted,
+        "final_path": final_path,
+        "renamed_from": renamed_from,
+    }
+
+
+def convert_path(src: Path, dest: Optional[Path] = None, recursive: bool = True) -> int:
     """
     Convert a single file or every .md file under a directory.
-    If dest is None, files are converted in place.
+    If dest is None, files are converted (and renamed) in place.
     """
     pattern = "**/*.md" if recursive else "*.md"
     files = [src] if src.is_file() else sorted(src.glob(pattern))
@@ -159,9 +236,12 @@ def convert_path(
         else:
             rel = md_file.relative_to(src) if src.is_dir() else md_file.name
             out_path = dest / rel
-        if convert_file(md_file, out_path, fmt, flatten):
+        result = process_file(md_file, out_path)
+        if result["converted"]:
             print(f"converted: {md_file}")
             count += 1
+        if result["renamed_from"] is not None:
+            print(f"renamed: {result['renamed_from']} -> {result['final_path']}")
     return count
 
 
@@ -185,17 +265,6 @@ def main():
         help="Write converted output back over the source files",
     )
     ap.add_argument(
-        "--format",
-        choices=["yaml", "toml"],
-        default="yaml",
-        help="Frontmatter format to emit (default: yaml)",
-    )
-    ap.add_argument(
-        "--flatten",
-        action="store_true",
-        help="Strip one level of leading outline bullets from the body",
-    )
-    ap.add_argument(
         "--no-recursive",
         action="store_true",
         help="Only process the top-level directory, not subdirectories",
@@ -210,9 +279,7 @@ def main():
         raise SystemExit("Don't pass both a dest directory and --in-place.")
 
     dest = None if args.in_place else args.dest
-    count = convert_path(
-        args.src, args.format, args.flatten, dest=dest, recursive=not args.no_recursive
-    )
+    count = convert_path(args.src, dest=dest, recursive=not args.no_recursive)
     print(f"\nConverted {count} file(s).")
 
 
