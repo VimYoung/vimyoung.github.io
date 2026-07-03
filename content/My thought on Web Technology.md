@@ -1,0 +1,1 @@
+- I can't say anything like now. This article is just the thoughts of mine as is because of the changes in the web stack that happen so drastically. I have been someone
