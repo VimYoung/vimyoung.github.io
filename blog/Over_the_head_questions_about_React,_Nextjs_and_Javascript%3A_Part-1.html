@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark" />
+    <meta name="generator" content="Marmite" />
+    
+<meta property="og:title" content="[[Blog Posts]]">
+
+<meta property="og:description" content="[In this blog post I go along misconceptions and confusions I had when learning react, Nextjs and Ja...">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Blog posts by VimYoung">
+
+<meta property="article:published_time" content=" 2026-04-19T00:00:00+00:00">
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "/Over_the_head_questions_about_React,_Nextjs_and_Javascript%3A_Part-1.html"
+    },
+    "url": "/Over_the_head_questions_about_React,_Nextjs_and_Javascript%3A_Part-1.html",
+    "headline": "[[Blog Posts]]",
+    "description": "[In this blog post I go along misconceptions and confusions I had when learning react, Nextjs and Javascript.]",
+    
+    
+    "publisher": {
+        "@type": "Organization",
+        "name": "Blog posts by VimYoung",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/"
+        }
+    },
+    "datePublished": "2026-04-19T00:00:00+00:00"
+}
+</script>
+
+
+    <title>[[Blog Posts]] | Blog posts by VimYoung</title>
+    <link rel="stylesheet" type="text/css" href="/static/pico.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/marmite.css">
+    
+    <link rel="stylesheet" type="text/css" href="/static/custom.css">
+    
+
+<link rel="stylesheet" href="/static/arborium.css" />
+
+
+
+
+        <link rel="alternate" type="application/rss+xml" title="index" href="/index.rss">
+    <link rel="alternate" type="application/rss+xml" title="tag: theoretical-writeups" href="/tag-theoretical-writeups.rss">
+    <link rel="alternate" type="application/rss+xml" title="tag: web-dev" href="/tag-web-dev.rss">
+    <link rel="alternate" type="application/rss+xml" title="tag: tutorial" href="/tag-tutorial.rss">
+    <link rel="alternate" type="application/rss+xml" title="tag: technical" href="/tag-technical.rss">
+    <link rel="alternate" type="application/rss+xml" title="year: 2026" href="/archive-2026.rss">
+    <link rel="alternate" type="application/rss+xml" title="year: 2025" href="/archive-2025.rss">
+    
+
+    
+
+    
+    
+</head>
+<body>
+    
+    <main class="container">
+        
+        <header class="header-content">
+            <nav class="header-nav">
+                <ul class="header-name">
+                    <li>
+                        <hgroup class="h-card">
+                            <h2>
+                                <a href="/" class="contrast p-name u-url">
+                                    
+                                        Blog posts by VimYoung
+                                    
+                                </a>
+                            </h2>
+                             <p class="p-note">Coding as a path to peace.</p> 
+                        </hgroup>
+                    </li>
+                </ul>
+                <button id="menu-toggle" class="hamburger">&#9776;</button>
+
+                <ul class="header-menu" id="header-menu">
+                    
+                      
+                      
+                    <li>
+                        
+                        <a class="menu-item secondary"  href="/about.html">about</a>
+                        
+                    </li>
+                    
+                      
+                      
+                    <li>
+                        
+                        <a class="menu-item secondary"  href="/pages.html">pages</a>
+                        
+                    </li>
+                    
+                      
+                      
+                    <li>
+                        
+                        <a class="menu-item secondary"  href="/tags.html">tags</a>
+                        
+                    </li>
+                    
+                      
+                      
+                    <li>
+                        
+                        <a class="menu-item secondary"  href="/archive.html">archive</a>
+                        
+                    </li>
+                    
+                    
+                    
+                    <div class="underline"></div>
+                </ul>
+            </nav>
+            
+        </header>
+        
+        <section class="main-content">
+            
+
+
+
+<article class="h-entry">
+  <data class="p-name" value="[[Blog Posts]]"></data>
+  <a class="u-url" href="/Over_the_head_questions_about_React,_Nextjs_and_Javascript%3A_Part-1.html" style="display: none;"></a>
+  
+  <time class="dt-published" datetime="2026-04-19T00:00:00+00:00" style="display: none;">Apr 19, 2026</time>
+  
+
+  
+
+  
+
+
+<div class="content-title" id="title">
+    <h1>[[Blog Posts]]</h1> 
+    
+
+
+<span class="content-date">
+    <small> Apr 19, 2026 - &#10710; 11 min</small>
+</span>
+
+</div>
+
+  
+  
+
+  <div class="content-html e-content"><p>Recently, I went through the labyrinth of web technologies. As someone who hasn't made any webapp before with JavaScript, it was indeed a roller coaster ride. I first made a web application in HTML, CSS and Flask. It was easy. Then came the need for dynamic nature in clients, attached with this fact came JavaScript and its numerous frameworks. Though, I studied the 2 most common technologies in web-dev world, namely React and Nextjs. As a new comer to the language, as well as to these frameworks, I had a lot of beginner questions regarding their architecture, file handling, routers etc. Some of these questions I am going to answer here. So, hang tight and read through this blog to see if there are some nuances you might have missed.</p>
+<h1><a href="#how-is-react-different-from-nextjs-what-problems-do-they-solve-separately" aria-hidden="true" class="anchor" id="how-is-react-different-from-nextjs-what-problems-do-they-solve-separately"></a>How is React different from Next.js? What problems do they solve separately?</h1>
+<h2><a href="#actually-they-are-not-different-rather-one-can-be-though-of-as-a-subset-of-other-so-react-is-a-library-of-javascript-that-is-used-for-creating-interactive-user-interfacesuis-so-the-contents-that-are-to-be-rendered-are-broken-down-as-something-called-react-components-which-is-then-rendered-accordingly" aria-hidden="true" class="anchor" id="actually-they-are-not-different-rather-one-can-be-though-of-as-a-subset-of-other-so-react-is-a-library-of-javascript-that-is-used-for-creating-interactive-user-interfacesuis-so-the-contents-that-are-to-be-rendered-are-broken-down-as-something-called-react-components-which-is-then-rendered-accordingly"></a>Actually they are not different. Rather one can be though of as a subset of other. So, React is a library of javascript that is used for creating interactive user interfaces(UIs). So, the contents that are to be rendered are broken down as something called react components which is then rendered accordingly.</h2>
+<h2><a href="#traditionally-the-library-was-built-for-spas-ie-single-page-applications-nextjs-is-a-framework-of-react-that-extends-its-capabilities-to-multi-page-interfraces-not-only-this-nextjs-also-extends-into-all-the-side-jobs-like-image-rendering-optimisation-font-caching-page-routing-data-fetching-and-even-to-server-side-components-so-nextjs-builds-upon-react-for-providing-a-person-with-the-means-to-create-a-full-blown-web-application" aria-hidden="true" class="anchor" id="traditionally-the-library-was-built-for-spas-ie-single-page-applications-nextjs-is-a-framework-of-react-that-extends-its-capabilities-to-multi-page-interfraces-not-only-this-nextjs-also-extends-into-all-the-side-jobs-like-image-rendering-optimisation-font-caching-page-routing-data-fetching-and-even-to-server-side-components-so-nextjs-builds-upon-react-for-providing-a-person-with-the-means-to-create-a-full-blown-web-application"></a>Traditionally, the library was built for SPAs, i.e. Single Page Applications. Nextjs is a framework of react that extends its capabilities to Multi-page interfraces. Not only this, Nextjs also extends into all the side jobs like image rendering optimisation, font caching, page routing, data fetching and even to server side components. So, Nextjs, builds upon react for providing a person with the means to create a full blown web application.</h2>
+<p>Even though, the above image gives you a somewhat correct notion about the relation of these terms with each other, I wouldn't go about thinking them as it is. Because even though react is a js  library, it uses JSX(more on that later), even though Nextjs is a framework of react, it extends itself into a lot of other spaces (which can make it difficult to understand if you see Nextjs just as a UI framework). So, it is important to keep in mind that these things are more than just being a subset of one another.</p>
+<h1><a href="#why-do-react-developers-use-jsx-how-is-it-better-than-writing-separate-html-and-javascript-files" aria-hidden="true" class="anchor" id="why-do-react-developers-use-jsx-how-is-it-better-than-writing-separate-html-and-javascript-files"></a>Why do React developers use JSX? How is it better than writing separate HTML and JavaScript files?</h1>
+<h2><a href="#this-question-is-more-about-the-working-and-history-of-react-than-its-technical-details-yet-i-find-it-necessary-to-answer-so-that-the-fundamentals-of-how-react-works-remain-clear-jsx-was-made-to-be-used-in-react-the-question-is-why-invent-a-new-syntax-extension-of-javascript-just-to-be-used-by-a--library-the-answer-lies-in-fact-of-how-react-differs-from-previous-styles-of-writing-web-application-traditionally-apps-were-created-with-a-linear-flow-of-logic-so-you-defined-what-changes-how-but-with-complex-ui-behaviours-like-infinite-scroll-likes-searches-dynamic-rendering-on-data-fetching-video-streaming-came-into-being-it-became-difficult-to-maintain-the-old-style-of-writing-code-react-levelled-this-gap-by-breaking-ui-into-components-where-each-jsx-functionreact-component-follows-three-simple-rules---any-jsx--function-should-ultimately-return-a-single-tag-which-you-can-wrap-around-div-in-most-cases-but-can-also-use-an-empty-tag-called-fragment-tag--used-for-grouping-tags-logseqorder-list-type-number---close-all-tags-explicitly-even-tags-likeimg-and-li-also-needs-to-be-closed-logseqorder-list-type-number---use-camel-case-for-all-the-variables-and-components-as-code-ultimately-converts-to-javascript-which-have-restrictions-on-identifierthis-rule-is-discussed-after-the-note-on-dom-logseqorder-list-type-number-so-you-could-use-these-components-repetitively-if-needed-and-a-single-piece-of-ui-have-all-its-working-contained-into-a-single-component-it-is-different-from-how-previously-styling-used-to-be-stored-in-css-files-ui-structure-in-html-and-business-logic-in-javascript-files" aria-hidden="true" class="anchor" id="this-question-is-more-about-the-working-and-history-of-react-than-its-technical-details-yet-i-find-it-necessary-to-answer-so-that-the-fundamentals-of-how-react-works-remain-clear-jsx-was-made-to-be-used-in-react-the-question-is-why-invent-a-new-syntax-extension-of-javascript-just-to-be-used-by-a--library-the-answer-lies-in-fact-of-how-react-differs-from-previous-styles-of-writing-web-application-traditionally-apps-were-created-with-a-linear-flow-of-logic-so-you-defined-what-changes-how-but-with-complex-ui-behaviours-like-infinite-scroll-likes-searches-dynamic-rendering-on-data-fetching-video-streaming-came-into-being-it-became-difficult-to-maintain-the-old-style-of-writing-code-react-levelled-this-gap-by-breaking-ui-into-components-where-each-jsx-functionreact-component-follows-three-simple-rules---any-jsx--function-should-ultimately-return-a-single-tag-which-you-can-wrap-around-div-in-most-cases-but-can-also-use-an-empty-tag-called-fragment-tag--used-for-grouping-tags-logseqorder-list-type-number---close-all-tags-explicitly-even-tags-likeimg-and-li-also-needs-to-be-closed-logseqorder-list-type-number---use-camel-case-for-all-the-variables-and-components-as-code-ultimately-converts-to-javascript-which-have-restrictions-on-identifierthis-rule-is-discussed-after-the-note-on-dom-logseqorder-list-type-number-so-you-could-use-these-components-repetitively-if-needed-and-a-single-piece-of-ui-have-all-its-working-contained-into-a-single-component-it-is-different-from-how-previously-styling-used-to-be-stored-in-css-files-ui-structure-in-html-and-business-logic-in-javascript-files"></a>This question is more about the working and history of react than its technical details, yet I find it necessary to answer so that the fundamentals of how react works remain clear. JSX was made to be used in react. The question is why invent a new syntax extension of javascript just to be used by a  library.
+The answer lies in fact of how react differs from previous styles of writing web application. Traditionally, apps were created with a linear flow of logic, so you defined what changes how. But with complex UI behaviours (like infinite scroll, likes, searches, dynamic rendering on data fetching, video streaming) came into being, it became difficult to maintain the old style of writing code. React levelled this gap by breaking UI into components. Where each JSX function/react component follows three simple rules.
+- Any JSX  function should ultimately return a <strong>single</strong> tag, which you can wrap around <code>&lt;div&gt;</code> in most cases but can also use an empty tag, called fragment tag <code>&lt;&gt;</code> used for grouping tags.
+logseq.order-list-type:: number
+- Close all tags explicitly, even tags like<code>&lt;img&gt;</code> and <code>&lt;li&gt;</code> also needs to be closed.
+logseq.order-list-type:: number
+- Use camel case for all the variables and components as code ultimately converts to javascript which have restrictions on identifier(this rule is discussed after the note on DOM).
+logseq.order-list-type:: number
+So, you could use these components repetitively if needed and a single piece of UI have all its working contained into a single component. It is different from how previously styling used to be stored in CSS files, UI structure in HTML and business logic in javascript files.</h2>
+<p>Now, most important benefit of JSX hides in its third rule. It gets into how JSX is parsed/transformed internally by react. There was a common misconception I had about how JSX is processed internally. I thought that JSX might be converted into separate files where the return value went into html and the code logic into separate js files. But actually, the JSX syntax converts the return types into  JS function calls. So something like following:
+-
+<code>html //jsx &lt;div className=&quot;greeting&quot;&gt; &lt;h1&gt;Hello, {name}!&lt;/h1&gt; &lt;/div&gt; </code>
+- Changes into:
+<code>js React.createElement('div', {className: 'greeting'}, React.createElement('h1', null, 'Hello, ', name, '!') ) </code>
+- At runtime, these function calls create plain JS objects that describe how the UI looks like.
+Ex:<br />
+<code>json { type: 'div', props: { className: 'greeting', children: { type: 'h1', props: { children: ['Hello, ', name, '!'] } } } } </code>
+- And hence the 3rd rule to name variables in camel case as they are ultimately converted to js objects. There are minor details about virtual DOM in play but that resides in deeper details of how react render its components (more on that in the last question).
+I always thought JSX combined js and html but normally the content returned by a component never gets converted to html directly. The syntax was chosen similar to HTML merely to maintain familiarity about how the UI structure syntax was defined in react.</p>
+<h1><a href="#what-is-the-difference-between-state-and-props-in-react" aria-hidden="true" class="anchor" id="what-is-the-difference-between-state-and-props-in-react"></a>What is the difference between state and props in React?</h1>
+<p>This is a very common pitfall when understanding react (more so if you are new to javascript). So, what are states and props in react. Let's talk about each, one by one.
+Props or properties in React are simple. I like to think of them as pipelines. Something which brings in information, unchanged. There are a few nuances to keep in mind regarding <code>props</code>.
+- <code>props</code> is an argument for a component.
+logseq.order-list-type:: number
+- <code>props</code> are ready-only in nature. Hence, a component can't change its own props.
+logseq.order-list-type:: number
+- Each component receives a single <code>props</code> argument where the object itself can contain multiple properties, often accessed through object destructuring.
+logseq.order-list-type:: number
+- They are passed on from parent component and generally used to customise/configure a component.
+logseq.order-list-type:: number
+To give an example, look at the following code.</p>
+<pre class="marmite-code"><code class="marmite-code-inner language-jsx"><a-k>function</a-k> <a-cr>Parent</a-cr><a-p>()</a-p> <a-p>{</a-p>
+  <a-k>return</a-k> <a-o>&lt;</a-o><a-cr>Greeting</a-cr> <a-pr>name</a-pr><a-o>=</a-o><a-s>&quot;John Doe&quot;</a-s> /&gt;<a-p>;</a-p>
+<a-p>}</a-p>
+  
+<a-k>function</a-k> <a-cr>Greeting</a-cr><a-p>({</a-p> name <a-p>})</a-p> <a-p>{</a-p>
+  <a-k>return</a-k> <a-o>&lt;</a-o><a-v>h1</a-v><a-o>&gt;</a-o>Hello, <a-p>{</a-p><a-v>name</a-v><a-p>}</a-p>&lt;/<a-v>h1</a-v><a-o>&gt;</a-o><a-p>;</a-p>
+<a-p>}</a-p></code></pre>
+<p>Here <code>Parent</code> calls <code>Greeting</code> with property called <code>name</code> with value <code>John Doe</code>. The component <code>Greeting</code> excepts the prop and passes it onto its own <code>&lt;h1&gt;</code> tag. Hence, something defined above in <code>Parent</code> percolates down to child components using react properties.
+It is important to note that <code>name</code> here is enclosed in curly parenthesis, which is nothing but object destructuring. The above code is same as following.</p>
+<pre class="marmite-code"><code class="marmite-code-inner language-jsx"><a-k>function</a-k> <a-cr>Greeting</a-cr><a-p>(</a-p><a-v>props</a-v><a-p>)</a-p> <a-p>{</a-p>
+  <a-k>const</a-k> <a-v>name</a-v> <a-o>=</a-o> <a-v>props</a-v><a-p>.</a-p><a-pr>name</a-pr><a-p>;</a-p>
+  <a-k>return</a-k> <a-o>&lt;</a-o><a-v>h1</a-v><a-o>&gt;</a-o>Hello, <a-p>{</a-p><a-v>name</a-v><a-p>}</a-p>&lt;/<a-v>h1</a-v><a-o>&gt;</a-o><a-p>;</a-p>
+<a-p>}</a-p></code></pre>
+<h2><a href="#inheriting-its-behaviour-from-js-if-you-pass-props-that-are-not-useddefined-they-are-simply-ignored-if-you-dont-pass-something-that-is-needed-it-leads-to-undefined-behaviour" aria-hidden="true" class="anchor" id="inheriting-its-behaviour-from-js-if-you-pass-props-that-are-not-useddefined-they-are-simply-ignored-if-you-dont-pass-something-that-is-needed-it-leads-to-undefined-behaviour"></a>Inheriting its behaviour from JS, if you pass props that are not used/defined, they are simply ignored. If you don't pass something that is needed. It leads to undefined behaviour.</h2>
+<p>Now, coming to state. &quot;State&quot; is simply some memory space which stores some configurations of your application. Like:
+* Has a user logged in as student, teacher or admin?
+* Is the person viewing the application in dark or light mode?
+* Is a form filled or not?<br />
+This data is stored and should be changeable by UI. Also, the UI must change according to changes in state. For smoothing the process of integrating UI and business logic with state variables, react provides a <code>useState</code> function. It takes a default value and returns a value representing the state and a setter function of the state.
+<code>js // Example const [theme, setTheme] = React.useState(&quot;dark&quot;); </code></p>
+<h2><a href="#but-why-not-simply-store-the-value-in-variables-one-can-do-so-but-then-there-remains-no-way-to-notify-a-change-in-the-value-of-the-variable-to-react-hence-no-way-to-update-ui-so-in-a-general-application-flow-parent-components-create-and-store-states-and-pass-them-to-child-components-as-properties" aria-hidden="true" class="anchor" id="but-why-not-simply-store-the-value-in-variables-one-can-do-so-but-then-there-remains-no-way-to-notify-a-change-in-the-value-of-the-variable-to-react-hence-no-way-to-update-ui-so-in-a-general-application-flow-parent-components-create-and-store-states-and-pass-them-to-child-components-as-properties"></a>But why not simply store the value in variables? One can do so but then there remains no way to notify a change in the value of the variable to react. Hence, no way to update UI. So, in a general application flow, parent components create and store states and pass them to child components as properties.</h2>
+<p>Parent Component -&gt; State -&gt; Pass as props -&gt; Child Component</p>
+<p>A typical example looks like following:</p>
+<pre class="marmite-code"><code class="marmite-code-inner language-jsx"><a-k>function</a-k> <a-cr>Parent</a-cr><a-p>()</a-p> <a-p>{</a-p>
+  <a-c>// Creating a state Variable with `useState`</a-c>
+  <a-k>const</a-k> <a-p>[</a-p><a-v>theme</a-v><a-p>,</a-p> <a-v>setTheme</a-v><a-p>]</a-p> <a-o>=</a-o> <a-cr>React</a-cr><a-p>.</a-p><a-f>useState</a-f><a-p>(</a-p><a-s>&quot;dark&quot;</a-s><a-p>);</a-p>
+  
+  <a-c>// Passing the state as property of Child</a-c>
+  <a-k>return</a-k> <a-o>&lt;</a-o><a-cr>Child</a-cr> <a-pr>theme</a-pr><a-o>=</a-o><a-p>{</a-p><a-v>theme</a-v><a-p>}</a-p> /&gt;<a-p>;</a-p>
+<a-p>}</a-p>
+  
+<a-c>// taking in theme property and using it for internal logic.</a-c>
+<a-k>function</a-k> <a-cr>Child</a-cr><a-p>({</a-p> theme <a-p>})</a-p> <a-p>{</a-p>
+  <a-k>return</a-k> <a-o>&lt;</a-o><a-v>div</a-v> <a-pr>className</a-pr><a-o>=</a-o><a-p>{</a-p><a-v>theme</a-v><a-p>}</a-p><a-o>&gt;</a-o>Hello&lt;/<a-v>div</a-v><a-o>&gt;</a-o><a-p>;</a-p>
+<a-p>}</a-p></code></pre>
+<h1><a href="#why-do-we-need-dynamic-class-names-in-react-and-how-does-clsx-library-help-manage-them" aria-hidden="true" class="anchor" id="why-do-we-need-dynamic-class-names-in-react-and-how-does-clsx-library-help-manage-them"></a>Why do we need dynamic class names in React, and how does <code>clsx</code> library help manage them?</h1>
+<p>This was a very common  doubt I had when dealing with react. I never initially understood the need of adding a whole new library just so that I can manage classes of a UI component. Moreover, most of the dynamicity is provided by tailwind so I wouldn't need to worry about the website being rendered properly on different devices.
+The issue arrives with the fact that tailwind has no way to see through the state (variables) of your application. For, example maybe there is a button that needs to have 3 different colours based on if the user is authenticated, if the feature is enabled and if a previous text-field is filled or not. Scenarios like these create the need for inclusion of <code>clsx</code>.
+So, it can do something like following.</p>
+<pre class="marmite-code"><code class="marmite-code-inner language-jsx"><a-o>&lt;</a-o><a-v>button</a-v>
+  <a-pr>className</a-pr><a-o>=</a-o><a-p>{</a-p><a-f>clsx</a-f><a-p>(</a-p>
+    <a-s>&quot;px-4 py-2 rounded&quot;</a-s><a-p>,</a-p>
+    <a-v>isActive</a-v> ? <a-s>&quot;bg-blue-500 text-white&quot;</a-s> : <a-s>&quot;bg-gray-200 text-black&quot;</a-s><a-p>,</a-p>
+    <a-v>isDisabled</a-v> <a-o>&amp;&amp;</a-o> <a-s>&quot;opacity-50 cursor-not-allowed&quot;</a-s>
+  <a-p>)}</a-p>
+<a-o>&gt;</a-o>
+  Click
+ &lt;/<a-v>button</a-v><a-o>&gt;</a-o></code></pre>
+<p>One can quickly argue that something similar can be achieved without clsx, just by using ternary operators, so the above code looks like following without <code>clsx</code>.</p>
+<pre class="marmite-code"><code class="marmite-code-inner language-jsx"><a-o>&lt;</a-o><a-v>button</a-v>
+  <a-pr>className</a-pr><a-o>=</a-o><a-p>{</a-p><a-s>`px-4 py-2 rounded
+    </a-s><a-p>${</a-p><a-v>isActive</a-v><a-eb> ? </a-eb><a-s>&quot;bg-blue-500 text-white&quot;</a-s><a-eb> : </a-eb><a-s>&quot;bg-gray-200 text-black&quot;</a-s><a-p>}</a-p><a-s>
+    </a-s><a-p>${</a-p><a-v>isDisabled</a-v><a-eb> ? </a-eb><a-s>&quot;opacity-50 cursor-not-allowed&quot;</a-s><a-eb> : </a-eb><a-s>&quot;&quot;</a-s><a-p>}</a-p><a-s>
+  `</a-s><a-p>}</a-p>
+<a-o>&gt;</a-o>
+  Click
+&lt;/<a-v>button</a-v><a-o>&gt;</a-o></code></pre>
+<p>It doesn't look any different, rather it is easier to make sense of. but as web applications grow in their size, conditional class names become inevitable, in such cases the ternary nesting becomes difficult to understand. Also, clsx ensures explicit mutual exclusivity between classes, so you don't mix-up classes by their order or get undefined behaviour when classes for different states are slightly over-lapping.
+For an example, let's take the following class for the example mentioned above.</p>
+<pre class="marmite-code"><code class="marmite-code-inner language-jsx"><a-v>className</a-v><a-o>=</a-o><a-p>{</a-p><a-s>`px-4 py-2 rounded
+  </a-s><a-p>${</a-p><a-v>isDisabled</a-v><a-eb> ? </a-eb><a-s>&quot;opacity-50 cursor-not-allowed&quot;</a-s><a-eb> : </a-eb><a-s>&quot;&quot;</a-s><a-p>}</a-p><a-s>
+  </a-s><a-p>${</a-p><a-v>isActive</a-v><a-eb> ? </a-eb><a-s>&quot;bg-blue-500 text-white&quot;</a-s><a-eb> : </a-eb><a-s>&quot;bg-gray-200 text-black&quot;</a-s><a-p>}</a-p><a-s>
+`</a-s><a-p>}</a-p></code></pre>
+<p>Now, a small change is proposed.</p>
+<blockquote>
+<p>Disabled buttons should <strong>always</strong> look gray, even if active.<br />
+To achieve this you make the following change.</p>
+</blockquote>
+<pre class="marmite-code"><code class="marmite-code-inner language-jsx"><a-v>$</a-v><a-p>{</a-p><a-v>isDisabled</a-v> <a-o>&amp;&amp;</a-o> <a-s>&quot;bg-gray-200 text-black opacity-50&quot;</a-s><a-p>}</a-p>
+<a-v>$</a-v><a-p>{</a-p><a-v>isActive</a-v> <a-o>&amp;&amp;</a-o> <a-s>&quot;bg-blue-500 text-white&quot;</a-s><a-p>}</a-p></code></pre>
+<p>Notice the resultant class when both are true, this is how the <code>className</code> gets resolved.</p>
+<pre class="marmite-code"><code class="marmite-code-inner language-jsx"><a-v>bg</a-v><a-o>-</a-o><a-v>gray</a-v><a-o>-</a-o><a-n>200</a-n> <a-v>text</a-v><a-o>-</a-o><a-v>black</a-v> <a-v>opacity</a-v><a-o>-</a-o><a-n>50</a-n> <a-v>bg</a-v><a-o>-</a-o><a-v>blue</a-v><a-o>-</a-o><a-n>500</a-n> <a-v>text</a-v><a-o>-</a-o><a-v>white</a-v></code></pre>
+<p>Notice, this is not ergonomic in itself as we are unknowingly setting background(<code>bg</code>) colour twice. Also this code won't result in right output because when a property is set more than once, tailwind resolves it by considering the last setting. So, the order in which the conditions are defined is having effect on output class. Here, we can make the conditionals mutually exclusive with following code.</p>
+<pre class="marmite-code"><code class="marmite-code-inner language-jsx"><a-v>className</a-v><a-o>=</a-o><a-p>{</a-p><a-pr>clsx</a-pr><a-p>(</a-p>
+  <a-s>&quot;px-4 py-2 rounded&quot;</a-s><a-p>,</a-p>
+  <a-p>{</a-p>
+    <a-s>&quot;bg-blue-500 text-white&quot;</a-s>: <a-v>isActive</a-v> <a-o>&amp;&amp;</a-o> <a-o>!</a-o><a-v>isDisabled</a-v><a-p>,</a-p>
+    <a-s>&quot;bg-gray-200 text-black opacity-50&quot;</a-s>: <a-v>isDisabled</a-v><a-p>,</a-p>
+  <a-p>}</a-p>
+<a-p>)}</a-p></code></pre>
+<p>Now, the rule is encoded and not implied by string order. This example proves the usefulness of clsx in situations where mutual exclusivity between conditions need to be ensured.</p>
+<h1><a href="#what-is-hydration-and-why-does-nextjs-need-it-for-client-components" aria-hidden="true" class="anchor" id="what-is-hydration-and-why-does-nextjs-need-it-for-client-components"></a>What is hydration, and why does Next.js need it for client components?</h1>
+<p>Understanding hydration clears the path for understanding how react manipulates the UI. The need to understand hydration came when dealing with <code>Hydration error</code>. So, we have made the ground that JSX converts to plain js objects (which describe the UI in a loose sense). From here, the cross-platform nature of comes into play. How react is actually transformed depends on which platform it is running, and hence the kind of renderer that is used. Different places require different renderers, here are a few common examples.
+| Platform | Renderer |
+| Server Side Rendering | react-dom/server |
+| Client-Side Rendering | react-dom/client |
+| Native-Rendering(iOS, Android, Windows) | react-native |
+| Terminal-Rendering | Ink |
+Now, when the content is renderer in Server, it uses <code>react-dom/server</code>, this server converts js objects of react into html before transferring it to client. On the client, React recreates the virtual component tree and attempts to match it against the existing DOM produced by the server. During hydration, React expects the structure and content to match exactly and attaches event listeners and state without mutating the DOM.
+This initial matching of the React virtual tree with the existing DOM, along with attaching event listeners and initializing state, is called hydration. Hydration error occurs in scenarios when react expects no change between them but there are changes. For example, check the following code:</p>
+<pre class="marmite-code"><code class="marmite-code-inner language-jsx"><a-s>&quot;use client&quot;</a-s><a-p>;</a-p>
+  
+<a-k>export</a-k> <a-k>function</a-k> <a-cr>Time</a-cr><a-p>()</a-p> <a-p>{</a-p>
+  <a-k>return</a-k> <a-o>&lt;</a-o><a-v>p</a-v><a-o>&gt;</a-o><a-p>{</a-p><a-cr>Date</a-cr><a-p>.</a-p><a-f>now</a-f><a-p>()}</a-p>&lt;/<a-v>p</a-v><a-o>&gt;</a-o><a-p>;</a-p>
+<a-p>}</a-p></code></pre>
+<p>When server passes this to client, it renders <code>&lt;p&gt;1707460000000&lt;/p&gt;</code>, but the client expects <code>&lt;p&gt;1707460000123&lt;/p&gt;</code>. Here, the time lag creates a Hydration error.</p>
+<h1><a href="#conclusion" aria-hidden="true" class="anchor" id="conclusion"></a>Conclusion</h1>
+<p>In this blog, we talked about react and Nextjs, how it works, some common issue which new comers face and their solutions. I would love to hear your input on the post. There will also be a part 2 of this blog releasing  soon. Till then, happy coding!!</p>
+</div>
+  
+  <footer class="data-tags-footer">
+
+    <div class="content-authors-flex">
+      <div class="content-authors-full">
+        
+
+      </div>
+
+      <div class="date-tags-container">
+        <div class="content-date">
+          
+
+
+<span class="content-date">
+    <small> Apr 19, 2026 - &#10710; 11 min</small>
+</span>
+
+          
+        </div>
+
+        <ul class="content-tags">
+          
+          
+          
+          <li><a href="/tag-web-dev.html" class="p-category">web-dev</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </footer>
+  
+</article>
+
+
+
+
+
+  
+  
+  
+  
+  
+  <article>
+    Related web-dev content
+    <ul>
+      
+      
+      <li><a href="/Over_the_head_questions_about_React,_NextJS_and_Javascript%3A_Part-2.html">[[Blog Posts]]</a></li>
+      
+      
+      
+    </ul>
+  </article>
+  
+
+
+
+
+<article>
+  <nav style="display: flex; justify-content: space-between;">
+    <div>
+      <a href="/Make_your_first_widget_with_Spell.html">← [[Blog Posts]]</a>
+    </div>
+    <div>
+      <a href="/Over_the_head_questions_about_React,_NextJS_and_Javascript%3A_Part-2.html">[[Blog Posts]] →</a>
+    </div>
+  </nav>
+</article>
+
+
+
+
+
+
+
+
+        </section>
+        
+        <footer class="footer-content grid">
+            <div>Powered by <a href="https://github.com/rochacbruno/marmite">Marmite</a> | <small><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC-BY_NC-SA</a></small></div>
+            
+        </footer>
+        
+    </main>
+
+    <script src="/static/marmite.js"></script>
+    <script src="/static/custom.js"></script>
+    
+    
+    
+    
+
+
+</body>
+</html>

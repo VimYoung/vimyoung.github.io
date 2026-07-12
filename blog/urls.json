@@ -1,30 +1,76 @@
 {
-  "posts": [],
-  "pages": [],
-  "tags": [],
+  "posts": [
+    "/Over_the_head_questions_about_React,_NextJS_and_Javascript%3A_Part-2.html",
+    "/Over_the_head_questions_about_React,_Nextjs_and_Javascript%3A_Part-1.html",
+    "/Make_your_first_widget_with_Spell.html",
+    "/Frame_rate_improvement_for_faster_rendering.html",
+    "/Hardened_Scopes%3A_A_mental_model_for_rust.html"
+  ],
+  "pages": [
+    "/Advanced_Neovim_Setup.html",
+    "/draft-Pains_and_Perks_of_Meta_programming.html",
+    "/Blog_Posts.html",
+    "/Beauties_Of_C.html",
+    "/My_thought_on_Web_Technology.html",
+    "/The_crazy_syntax_of_rust.html",
+    "/unpublished___first_blog.html",
+    "/contents.html",
+    "/unpublished.html",
+    "/theoritical-writeups.html",
+    "/pages.html"
+  ],
+  "tags": [
+    "/tag-theoretical-writeups.html",
+    "/tag-web-dev.html",
+    "/tag-tutorial.html",
+    "/tag-technical.html",
+    "/tags.html"
+  ],
   "authors": [],
   "series": [],
-  "streams": [],
-  "archives": [],
-  "feeds": [],
-  "pagination": [],
+  "streams": [
+    "/streams.html"
+  ],
+  "archives": [
+    "/archive-2026.html",
+    "/archive-2025.html",
+    "/archive.html"
+  ],
+  "feeds": [
+    "/index.rss",
+    "/tag-theoretical-writeups.rss",
+    "/tag-web-dev.rss",
+    "/tag-tutorial.rss",
+    "/tag-technical.rss",
+    "/archive-2026.rss",
+    "/archive-2025.rss"
+  ],
+  "pagination": [
+    "/pages-1.html",
+    "/tag-theoretical-writeups-1.html",
+    "/tag-web-dev-1.html",
+    "/tag-tutorial-1.html",
+    "/tag-technical-1.html",
+    "/archive-2026-1.html",
+    "/archive-2025-1.html"
+  ],
   "file_mappings": [],
   "misc": [
     "/index.html"
   ],
   "summary": {
-    "posts": 0,
-    "pages": 0,
-    "tags": 0,
+    "posts": 5,
+    "pages": 11,
+    "tags": 5,
     "authors": 0,
     "series": 0,
-    "streams": 0,
-    "archives": 0,
-    "feeds": 0,
-    "pagination": 0,
+    "streams": 1,
+    "archives": 3,
+    "feeds": 7,
+    "pagination": 7,
     "file_mappings": 0,
     "misc": 1,
-    "total": 1,
+    "total": 40,
     "meta": {
       "url": "",
       "absolute_urls": false

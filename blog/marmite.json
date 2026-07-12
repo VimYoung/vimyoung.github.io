@@ -1,10 +1,10 @@
 {
   "marmite_version": "0.3.1",
-  "posts": 0,
-  "pages": 0,
-  "generated_at": "2026-07-03 14:26:58.446667930 +05:30",
-  "timestamp": 1783069018,
-  "elapsed_time": 0.065689918,
+  "posts": 5,
+  "pages": 10,
+  "generated_at": "2026-07-04 11:55:05.455191445 +05:30",
+  "timestamp": 1783146305,
+  "elapsed_time": 0.398561307,
   "config": {
     "name": "Blog posts by VimYoung",
     "tagline": "Coding as a path to peace.",
