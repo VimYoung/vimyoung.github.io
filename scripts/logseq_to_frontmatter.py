@@ -44,18 +44,27 @@ DROP_KEYS = {"id"}
 
 
 def parse_properties(lines):
-    """Consume leading `key:: value` lines, return (props, remaining_lines)."""
+    """
+    Consume leading `key:: value` lines, return (props, remaining_lines).
+    Property lines may be indented (Logseq sometimes nests the page-property
+    block under an implicit parent), so matching is done against the
+    stripped line, not raw column position.
+    """
     props = {}
     i = 0
     while i < len(lines):
-        line = lines[i].rstrip("\n")
-        m = PROP_RE.match(line)
+        stripped = lines[i].strip()
+        m = PROP_RE.match(stripped)
         if not m:
             break
         key, value = m.group(1).strip(), m.group(2).strip()
         # Logseq page-refs look like [[Foo]] - strip the brackets
         value = re.sub(r"\[\[(.*?)\]\]", r"\1", value)
-        if key.lower() in LIST_KEYS or "," in value:
+        if key.lower() in LIST_KEYS:
+            # Always a list for these keys, even with a single value - e.g.
+            # Marmite requires `tags` to be a list, not a bare string.
+            props[key] = [v.strip() for v in value.split(",") if v.strip()]
+        elif "," in value:
             items = [v.strip() for v in value.split(",") if v.strip()]
             props[key] = items if len(items) > 1 else (items[0] if items else "")
         else:
@@ -187,44 +196,10 @@ def convert_file(path: Path, out_path: Path) -> bool:
     return True
 
 
-def sanitize_filename(name: str) -> str:
-    """Replace any run of whitespace in a filename's stem with a single underscore."""
-    p = Path(name)
-    new_stem = re.sub(r"\s+", "_", p.stem.strip())
-    return f"{new_stem}{p.suffix}"
-
-
-def process_file(src_path: Path, out_path: Path) -> dict:
-    """
-    Convert one file's content (if it has a Logseq property block) and
-    normalize its filename (whitespace -> underscore), in that order.
-    Returns {"converted": bool, "final_path": Path, "renamed_from": Optional[Path]}.
-    """
-    converted = convert_file(src_path, out_path)
-
-    final_path = out_path
-    renamed_from = None
-    sanitized_name = sanitize_filename(out_path.name)
-    if sanitized_name != out_path.name:
-        candidate = out_path.parent / sanitized_name
-        if candidate.exists() and candidate != out_path:
-            print(f"[warning] rename target already exists, skipping: {candidate}")
-        else:
-            out_path.rename(candidate)
-            final_path = candidate
-            renamed_from = out_path
-
-    return {
-        "converted": converted,
-        "final_path": final_path,
-        "renamed_from": renamed_from,
-    }
-
-
 def convert_path(src: Path, dest: Optional[Path] = None, recursive: bool = True) -> int:
     """
     Convert a single file or every .md file under a directory.
-    If dest is None, files are converted (and renamed) in place.
+    If dest is None, files are converted in place.
     """
     pattern = "**/*.md" if recursive else "*.md"
     files = [src] if src.is_file() else sorted(src.glob(pattern))
@@ -236,12 +211,9 @@ def convert_path(src: Path, dest: Optional[Path] = None, recursive: bool = True)
         else:
             rel = md_file.relative_to(src) if src.is_dir() else md_file.name
             out_path = dest / rel
-        result = process_file(md_file, out_path)
-        if result["converted"]:
+        if convert_file(md_file, out_path):
             print(f"converted: {md_file}")
             count += 1
-        if result["renamed_from"] is not None:
-            print(f"renamed: {result['renamed_from']} -> {result['final_path']}")
     return count
 
 

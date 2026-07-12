@@ -1,16 +1,14 @@
 #!/usr/bin/env python3
 """
-Watch a directory tree for new/changed .md files and convert Logseq
-properties to YAML frontmatter in place, automatically, as soon as they
-show up. Outline bullets are always flattened.
+Watch a directory tree for new/changed .md files. On each event: rename
+the file (whitespace -> underscore) first, then convert its content to
+YAML frontmatter.
 
 Usage:
     pip install watchdog pyyaml
     python watch_and_convert.py ./logseq/pages
 
-Runs until you Ctrl+C. Good for: exporting from Logseq into a git repo
-that's synced/committed separately, or just keeping a vault continuously
-clean while you work.
+Runs until you Ctrl+C.
 """
 
 import argparse
@@ -20,7 +18,8 @@ from pathlib import Path
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 
-from logseq_to_frontmatter import process_file, convert_path
+from rename_files import rename_single, rename_path
+from logseq_to_frontmatter import convert_file, convert_path
 
 
 class MarkdownHandler(FileSystemEventHandler):
@@ -31,11 +30,9 @@ class MarkdownHandler(FileSystemEventHandler):
         # Small delay so the editor/exporter finishes writing before we read.
         time.sleep(0.2)
         try:
-            result = process_file(path, path)
-            if result["converted"]:
+            path = rename_single(path)          # rename pass first
+            if convert_file(path, path):         # then conversion pass
                 print(f"[converted] {path}")
-            if result["renamed_from"] is not None:
-                print(f"[renamed] {result['renamed_from']} -> {result['final_path']}")
         except Exception as e:
             print(f"[error] {path}: {e}")
 
@@ -49,13 +46,14 @@ class MarkdownHandler(FileSystemEventHandler):
 
 
 def main():
-    ap = argparse.ArgumentParser(
-        description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
-    )
+    ap = argparse.ArgumentParser(description=__doc__,
+                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("directory", type=Path, help="Directory to watch recursively")
     args = ap.parse_args()
 
-    # Convert anything already sitting there before we start watching.
+    # Process anything already sitting there before we start watching:
+    # full rename pass, then full conversion pass.
+    rename_path(args.directory, recursive=True)
     convert_path(args.directory, dest=None, recursive=True)
 
     handler = MarkdownHandler()
