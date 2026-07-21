@@ -43,22 +43,45 @@
         <div class="announcement">{{ announce }}</div>
     </div>
     {% endif %}
-    <main class="container">
+    <!-- <main class="container"> -->
+    <main style="display:flex" >
+      <div class="container">
+        <section class="main-content">
+            {% block main -%}{%- endblock %}
+        </section>
+        {% if footer is defined %}
+           {{ footer}}
+        {% else %}
+        <footer class="footer-content grid">
+            {{ site.footer | safe }}
+            {% if site.extra.colorscheme_toggle %}
+            <div class="colorscheme-toggle-div">
+                colorscheme: <select name="colorscheme" class="colorscheme-toggle"><option value="default">default</option></select>
+                <span class="theme-toggle secondary" title="dark mode">&#9789;</span>
+            </div>
+            {% endif %}
+        </footer>
+        {% endif %}
+      </div>
         {% if header is defined %}
            {{ header}}
         {% else %}
         <header class="header-content">
-            <nav class="header-nav">
+            <nav style="display:block"class="header-nav">
                 <ul class="header-name">
                     <li>
                         <hgroup class="h-card">
                             <h2>
                                 <a href="{{url_for(path='')}}" class="contrast p-name u-url">
+                                  <div style="display:flex">
+
                                     {% if site.logo_image %}
-                                        <img src="{{url_for(path=site.logo_image)}}" alt="{{ site.name }}" class="u-photo">
-                                    {% else %}
+                                        <img style="width: 60px; " src="{{url_for(path=site.logo_image)}}" alt="{{ site.name }}" class="u-photo">
+                                    {% endif %}
+                                    {% if site.name is defined %}
                                         {{ site.name }}
                                     {% endif %}
+                                  </div>
                                 </a>
                             </h2>
                             {% if site.tagline %} <p class="p-note">{{ site.tagline }}</p> {% endif %}
@@ -67,7 +90,7 @@
                 </ul>
                 <button id="menu-toggle" class="hamburger">&#9776;</button>
 
-                <ul class="header-menu" id="header-menu">
+                <ul class="header-menu" style="display: flex;flex-direction: column;" id="header-menu">
                     {% for item in menu %}
                       {% set name = item.0 %}
                       {% set url = item.1 %}
@@ -101,22 +124,6 @@
             {% endif %}
         </header>
         {% endif %}
-        <section class="main-content">
-            {% block main -%}{%- endblock %}
-        </section>
-        {% if footer is defined %}
-           {{ footer}}
-        {% else %}
-        <footer class="footer-content grid">
-            {{ site.footer | safe }}
-            {% if site.extra.colorscheme_toggle %}
-            <div class="colorscheme-toggle-div">
-                colorscheme: <select name="colorscheme" class="colorscheme-toggle"><option value="default">default</option></select>
-                <span class="theme-toggle secondary" title="dark mode">&#9789;</span>
-            </div>
-            {% endif %}
-        </footer>
-        {% endif %}
     </main>
     {%- block tail %}
     <script src="{{url_for(path='static/marmite.js')}}"></script>
@@ -140,7 +147,7 @@
     {% endif %}
     {% endblock -%}
     {% if htmltail is defined %}
-    {{ htmltail }}
+      {{ htmltail }}
     {% endif %}
 </body>
 </html>

@@ -1,8 +1,72 @@
-name: Blog posts by VimYoung
-tagline: Coding as a path to peace.
+name: VimYoung
+tagline: Coding as a path to peace
+url: ""
+https: null
+footer: <div>Blog Posts by VimYoung</div>
+language: ""
 pagination: 10
+pages_title: Pages
+tags_title: Tags
+tags_content_title: Posts tagged with '$tag'
+archives_title: Archive
+archives_content_title: Posts from '$year'
+streams_title: Streams
+streams_content_title: Posts from '$stream'
+series_title: Series
+series_content_title: Posts from '$series' series
+default_author: "VimYoung"
+authors_title: Authors
+enable_search: true
+search_show_matches: false
+search_match_count: 0
+enable_related_content: false
+search_title: ""
+content_path: content
+site_path: ""
+templates_path: templates
+static_path: static
+media_path: media
+card_image: ""
+banner_image: ""
+logo_image: "media/logo_dark.png"
+default_date_format: "%b %e, %Y"
 menu:
-  - ["about", "about.html"]
-  - ["pages", "pages.html"]
-  - ["tags", "tags.html"]
-  - ["archive", "archive.html"]
+  - - Hello
+    - index.html
+  - - About
+    - about.html
+  - - Blog
+    - blog.html
+  - - Archive
+    - archive.html
+  - - Tags
+    - base.html
+  - - Invalid Page
+    - invalid-page.html
+extra:
+  colormode: auto # auto, dark, or light
+  colormodetoggle: true
+  social_media:
+    github: "VimYoung/Spell"
+authors: {}
+streams: {}
+series: {}
+toc: false
+json_feed: false
+show_next_prev_links: true
+publish_md: false
+source_repository: null
+image_provider: null
+markdown_parser: null
+code_highlight: null
+theme: null
+# theme: mytheme
+file_mapping: []
+enable_shortcodes: true
+shortcode_pattern: null
+build_sitemap: true
+publish_urls_json: true
+gallery_path: gallery
+gallery_create_thumbnails: true
+gallery_thumb_size: 50
+skip_image_resize: false
