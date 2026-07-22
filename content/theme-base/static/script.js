@@ -166,6 +166,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Mobile menu toggle (if you add a mobile menu)
     initializeMobileMenu();
+
+    // Adjust body padding so fixed header doesn't cover content
+    adjustBodyPaddingForHeader();
+    window.addEventListener('resize', throttle(adjustBodyPaddingForHeader, 150));
     
     // Smooth scrolling for anchor links
     initializeSmoothScroll();
@@ -173,6 +177,22 @@ document.addEventListener('DOMContentLoaded', function() {
     // External link handling
     initializeExternalLinks();
 });
+
+/**
+ * Ensure page content isn't hidden under the fixed header on small screens
+ */
+function adjustBodyPaddingForHeader() {
+    const header = document.querySelector('.site-header');
+    if (!header) return;
+    const mobileBreakpoint = 768;
+    if (window.innerWidth <= mobileBreakpoint) {
+        const h = header.getBoundingClientRect().height;
+        document.body.style.paddingTop = h + 'px';
+    } else {
+        // remove inline style for desktop
+        document.body.style.paddingTop = '';
+    }
+}
 
 /**
  * Initialize search overlay functionality
@@ -243,8 +263,48 @@ function initializeMobileMenu() {
         return;
     }
     
-    menuToggle.addEventListener('click', function() {
-        menu.classList.toggle('mobile-menu-open');
+    menuToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const isOpen = menu.classList.toggle('mobile-menu-open');
+        // Update aria-expanded for accessibility
+        menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+
+        if (isOpen) {
+            // Position the overlay near the hamburger using viewport coordinates
+            const rect = menuToggle.getBoundingClientRect();
+            // Use fixed positioning so the menu appears in the expected spot regardless of DOM nesting
+            menu.style.position = 'fixed';
+            menu.style.top = (rect.bottom + 8) + 'px';
+            menu.style.left = (rect.left) + 'px';
+            menu.style.right = 'auto';
+            menu.style.display = 'flex';
+            menu.style.zIndex = 1000;
+        } else {
+            // Reset inline styles when closed
+            menu.style.position = '';
+            menu.style.top = '';
+            menu.style.left = '';
+            menu.style.right = '';
+            menu.style.display = '';
+            menu.style.zIndex = '';
+        }
+    });
+
+    // Close menu when clicking outside (optional UX improvement)
+    document.addEventListener('click', function(e) {
+        if (!menu.contains(e.target) && !menuToggle.contains(e.target)) {
+            if (menu.classList.contains('mobile-menu-open')) {
+                menu.classList.remove('mobile-menu-open');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                // Reset inline styles
+                menu.style.position = '';
+                menu.style.top = '';
+                menu.style.left = '';
+                menu.style.right = '';
+                menu.style.display = '';
+                menu.style.zIndex = '';
+            }
+        }
     });
 }
 

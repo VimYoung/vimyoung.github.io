@@ -126,6 +126,8 @@
             <!-- Navigation Menu -->
             <!-- Configure menu items in marmite.yaml -->
             {% if menu %}
+            <!-- Mobile menu toggle (visible on small screens) -->
+            <button id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-label="Toggle navigation">☰</button>
             <nav class="site-nav">
                 <ul>
                     {% for item in menu %}
