@@ -1,69 +1,69 @@
 {
   "posts": [
-    "/Over_the_head_questions_about_React,_NextJS_and_Javascript%3A_Part-2.html",
-    "/Over_the_head_questions_about_React,_Nextjs_and_Javascript%3A_Part-1.html",
-    "/Make_your_first_widget_with_Spell.html",
-    "/Frame_rate_improvement_for_faster_rendering.html",
-    "/Hardened_Scopes%3A_A_mental_model_for_rust.html"
+    "https://vimyoung.github.io/Over_the_head_questions_about_React,_NextJS_and_Javascript%3A_Part-2.html",
+    "https://vimyoung.github.io/Over_the_head_questions_about_React,_Nextjs_and_Javascript%3A_Part-1.html",
+    "https://vimyoung.github.io/Make_your_first_widget_with_Spell.html",
+    "https://vimyoung.github.io/Frame_rate_improvement_for_faster_rendering.html",
+    "https://vimyoung.github.io/Hardened_Scopes%3A_A_mental_model_for_rust.html"
   ],
   "pages": [
-    "/Advanced_Neovim_Setup.html",
-    "/draft-Pains_and_Perks_of_Meta_programming.html",
-    "/Blog_Posts.html",
-    "/about.html",
-    "/Beauties_Of_C.html",
-    "/My_thought_on_Web_Technology.html",
-    "/The_crazy_syntax_of_rust.html",
-    "/unpublished___first_blog.html",
-    "/contents.html",
-    "/unpublished.html",
-    "/theoritical-writeups.html",
-    "/pages.html"
+    "https://vimyoung.github.io/Advanced_Neovim_Setup.html",
+    "https://vimyoung.github.io/draft-Pains_and_Perks_of_Meta_programming.html",
+    "https://vimyoung.github.io/Blog_Posts.html",
+    "https://vimyoung.github.io/about.html",
+    "https://vimyoung.github.io/Beauties_Of_C.html",
+    "https://vimyoung.github.io/My_thought_on_Web_Technology.html",
+    "https://vimyoung.github.io/The_crazy_syntax_of_rust.html",
+    "https://vimyoung.github.io/unpublished___first_blog.html",
+    "https://vimyoung.github.io/contents.html",
+    "https://vimyoung.github.io/unpublished.html",
+    "https://vimyoung.github.io/theoritical-writeups.html",
+    "https://vimyoung.github.io/pages.html"
   ],
   "tags": [
-    "/tag-theoretical-writeups.html",
-    "/tag-web-dev.html",
-    "/tag-tutorial.html",
-    "/tag-technical.html",
-    "/tags.html"
+    "https://vimyoung.github.io/tag-theoretical-writeups.html",
+    "https://vimyoung.github.io/tag-web-dev.html",
+    "https://vimyoung.github.io/tag-tutorial.html",
+    "https://vimyoung.github.io/tag-technical.html",
+    "https://vimyoung.github.io/tags.html"
   ],
   "authors": [
-    "/author-vimyoung.html",
-    "/authors.html"
+    "https://vimyoung.github.io/author-vimyoung.html",
+    "https://vimyoung.github.io/authors.html"
   ],
   "series": [],
   "streams": [
-    "/streams.html"
+    "https://vimyoung.github.io/streams.html"
   ],
   "archives": [
-    "/archive-2026.html",
-    "/archive-2025.html",
-    "/archive.html"
+    "https://vimyoung.github.io/archive-2026.html",
+    "https://vimyoung.github.io/archive-2025.html",
+    "https://vimyoung.github.io/archive.html"
   ],
   "feeds": [
-    "/index.rss",
-    "/tag-theoretical-writeups.rss",
-    "/tag-web-dev.rss",
-    "/tag-tutorial.rss",
-    "/tag-technical.rss",
-    "/author-vimyoung.rss",
-    "/archive-2026.rss",
-    "/archive-2025.rss"
+    "https://vimyoung.github.io/index.rss",
+    "https://vimyoung.github.io/tag-theoretical-writeups.rss",
+    "https://vimyoung.github.io/tag-web-dev.rss",
+    "https://vimyoung.github.io/tag-tutorial.rss",
+    "https://vimyoung.github.io/tag-technical.rss",
+    "https://vimyoung.github.io/author-vimyoung.rss",
+    "https://vimyoung.github.io/archive-2026.rss",
+    "https://vimyoung.github.io/archive-2025.rss"
   ],
   "pagination": [
-    "/pages-1.html",
-    "/pages-2.html",
-    "/tag-theoretical-writeups-1.html",
-    "/tag-web-dev-1.html",
-    "/tag-tutorial-1.html",
-    "/tag-technical-1.html",
-    "/author-vimyoung-1.html",
-    "/archive-2026-1.html",
-    "/archive-2025-1.html"
+    "https://vimyoung.github.io/pages-1.html",
+    "https://vimyoung.github.io/pages-2.html",
+    "https://vimyoung.github.io/tag-theoretical-writeups-1.html",
+    "https://vimyoung.github.io/tag-web-dev-1.html",
+    "https://vimyoung.github.io/tag-tutorial-1.html",
+    "https://vimyoung.github.io/tag-technical-1.html",
+    "https://vimyoung.github.io/author-vimyoung-1.html",
+    "https://vimyoung.github.io/archive-2026-1.html",
+    "https://vimyoung.github.io/archive-2025-1.html"
   ],
   "file_mappings": [],
   "misc": [
-    "/index.html"
+    "https://vimyoung.github.io/index.html"
   ],
   "summary": {
     "posts": 5,
@@ -79,8 +79,8 @@
     "misc": 1,
     "total": 46,
     "meta": {
-      "url": "",
-      "absolute_urls": false
+      "url": "https://vimyoung.github.io/",
+      "absolute_urls": true
     }
   }
 }

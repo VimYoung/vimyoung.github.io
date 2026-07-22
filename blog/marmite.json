@@ -2,13 +2,13 @@
   "marmite_version": "0.3.1",
   "posts": 5,
   "pages": 11,
-  "generated_at": "2026-07-22 18:01:19.238377804 +05:30",
-  "timestamp": 1784723479,
-  "elapsed_time": 0.164167971,
+  "generated_at": "2026-07-22 21:24:29.198001207 +05:30",
+  "timestamp": 1784735669,
+  "elapsed_time": 0.365706503,
   "config": {
     "name": "VimYoung",
     "tagline": "Coding as a path to peace",
-    "url": "",
+    "url": "https://vimyoung.github.io/",
     "https": null,
     "footer": "<br><div>Entering Terra Incognito Space !!</div><div>Made with <a href=\"https://marmite.blog/\"> Marmite</a> and <a href=\"https://neovim.io/\">NeoVim </a><div>",
     "language": "",
@@ -69,13 +69,13 @@
       ]
     ],
     "extra": {
-      "colorscheme": "iceberg",
-      "colormodetoggle": true,
+      "colorscheme_toggle": true,
       "colormode": "auto",
+      "colormodetoggle": true,
       "social_media": {
         "github": "VimYoung/Spell"
       },
-      "colorscheme_toggle": true
+      "colorscheme": "iceberg"
     },
     "authors": {},
     "streams": {},
