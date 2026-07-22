@@ -25,6 +25,9 @@
     <loc>/Blog_Posts.html</loc>
   </url>
   <url>
+    <loc>/about.html</loc>
+  </url>
+  <url>
     <loc>/Beauties_Of_C.html</loc>
   </url>
   <url>
@@ -64,6 +67,12 @@
     <loc>/tags.html</loc>
   </url>
   <url>
+    <loc>/author-vimyoung.html</loc>
+  </url>
+  <url>
+    <loc>/authors.html</loc>
+  </url>
+  <url>
     <loc>/streams.html</loc>
   </url>
   <url>
@@ -91,6 +100,9 @@
     <loc>/tag-technical.rss</loc>
   </url>
   <url>
+    <loc>/author-vimyoung.rss</loc>
+  </url>
+  <url>
     <loc>/archive-2026.rss</loc>
   </url>
   <url>
@@ -98,6 +110,9 @@
   </url>
   <url>
     <loc>/pages-1.html</loc>
+  </url>
+  <url>
+    <loc>/pages-2.html</loc>
   </url>
   <url>
     <loc>/tag-theoretical-writeups-1.html</loc>
@@ -110,6 +125,9 @@
   </url>
   <url>
     <loc>/tag-technical-1.html</loc>
+  </url>
+  <url>
+    <loc>/author-vimyoung-1.html</loc>
   </url>
   <url>
     <loc>/archive-2026-1.html</loc>

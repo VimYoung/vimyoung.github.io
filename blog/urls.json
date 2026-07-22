@@ -10,6 +10,7 @@
     "/Advanced_Neovim_Setup.html",
     "/draft-Pains_and_Perks_of_Meta_programming.html",
     "/Blog_Posts.html",
+    "/about.html",
     "/Beauties_Of_C.html",
     "/My_thought_on_Web_Technology.html",
     "/The_crazy_syntax_of_rust.html",
@@ -26,7 +27,10 @@
     "/tag-technical.html",
     "/tags.html"
   ],
-  "authors": [],
+  "authors": [
+    "/author-vimyoung.html",
+    "/authors.html"
+  ],
   "series": [],
   "streams": [
     "/streams.html"
@@ -42,15 +46,18 @@
     "/tag-web-dev.rss",
     "/tag-tutorial.rss",
     "/tag-technical.rss",
+    "/author-vimyoung.rss",
     "/archive-2026.rss",
     "/archive-2025.rss"
   ],
   "pagination": [
     "/pages-1.html",
+    "/pages-2.html",
     "/tag-theoretical-writeups-1.html",
     "/tag-web-dev-1.html",
     "/tag-tutorial-1.html",
     "/tag-technical-1.html",
+    "/author-vimyoung-1.html",
     "/archive-2026-1.html",
     "/archive-2025-1.html"
   ],
@@ -60,17 +67,17 @@
   ],
   "summary": {
     "posts": 5,
-    "pages": 11,
+    "pages": 12,
     "tags": 5,
-    "authors": 0,
+    "authors": 2,
     "series": 0,
     "streams": 1,
     "archives": 3,
-    "feeds": 7,
-    "pagination": 7,
+    "feeds": 8,
+    "pagination": 9,
     "file_mappings": 0,
     "misc": 1,
-    "total": 40,
+    "total": 46,
     "meta": {
       "url": "",
       "absolute_urls": false

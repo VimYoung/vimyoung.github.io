@@ -1,17 +1,17 @@
 {
   "marmite_version": "0.3.1",
   "posts": 5,
-  "pages": 10,
-  "generated_at": "2026-07-04 11:55:05.455191445 +05:30",
-  "timestamp": 1783146305,
-  "elapsed_time": 0.398561307,
+  "pages": 11,
+  "generated_at": "2026-07-22 17:44:35.850895312 +05:30",
+  "timestamp": 1784722475,
+  "elapsed_time": 0.190860726,
   "config": {
-    "name": "Blog posts by VimYoung",
-    "tagline": "Coding as a path to peace.",
+    "name": "VimYoung",
+    "tagline": "Coding as a path to peace",
     "url": "",
     "https": null,
-    "footer": "<div>Powered by <a href=\"https://github.com/rochacbruno/marmite\">Marmite</a> | <small><a href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">CC-BY_NC-SA</a></small></div>",
-    "language": "en",
+    "footer": "<br><div>Entering Terra Incognito Space !!</div><div>Made with <a href=\"https://marmite.blog/\"> Marmite</a> and <a href=\"https://neovim.io/\">NeoVim </a><div>",
+    "language": "",
     "pagination": 10,
     "pages_title": "Pages",
     "tags_title": "Tags",
@@ -22,13 +22,13 @@
     "streams_content_title": "Posts from '$stream'",
     "series_title": "Series",
     "series_content_title": "Posts from '$series' series",
-    "default_author": "",
+    "default_author": "VimYoung",
     "authors_title": "Authors",
-    "enable_search": false,
+    "enable_search": true,
     "search_show_matches": false,
-    "search_match_count": 3,
-    "enable_related_content": true,
-    "search_title": "Search",
+    "search_match_count": 0,
+    "enable_related_content": false,
+    "search_title": "",
     "content_path": "content",
     "site_path": "",
     "templates_path": "templates",
@@ -36,27 +36,47 @@
     "media_path": "media",
     "card_image": "",
     "banner_image": "",
-    "logo_image": "",
+    "logo_image": "media/logo_dark.png",
     "default_date_format": "%b %e, %Y",
     "menu": [
       [
-        "about",
+        "Hello",
+        "index.html"
+      ],
+      [
+        "About",
         "about.html"
       ],
       [
-        "pages",
-        "pages.html"
+        "Blog",
+        "list.html"
       ],
       [
-        "tags",
-        "tags.html"
-      ],
-      [
-        "archive",
+        "Archive",
         "archive.html"
+      ],
+      [
+        "Tags",
+        "base.html"
+      ],
+      [
+        "RSS",
+        "index.rss"
+      ],
+      [
+        "Invalid Page",
+        "invalid-page.html"
       ]
     ],
-    "extra": null,
+    "extra": {
+      "social_media": {
+        "github": "VimYoung/Spell"
+      },
+      "colormode": "auto",
+      "colormodetoggle": true,
+      "colorscheme_toggle": true,
+      "colorscheme": "iceberg"
+    },
     "authors": {},
     "streams": {},
     "series": {},
@@ -68,7 +88,7 @@
     "image_provider": null,
     "markdown_parser": null,
     "code_highlight": null,
-    "theme": null,
+    "theme": "theme-base",
     "file_mapping": [],
     "enable_shortcodes": true,
     "shortcode_pattern": null,

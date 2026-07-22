@@ -131,14 +131,14 @@ const toggleSearchBar = () => {
     document.getElementById("marmite-search-bar-result").innerHTML = "";
     // Focus the search input if the search bar is shown
     const searchInput = document.getElementById("marmite-search-input");
-    if (document.body.classList.contains('show')) {
+    if (searchInput && document.body.classList.contains('show')) {
         searchInput.focus();
     }
 };
 
-document.getElementById("search-toggle").addEventListener("click", toggleSearchBar);
-document.getElementById("search-close").addEventListener("click", toggleSearchBar);
-document.getElementById("overlay-close").addEventListener("click", toggleSearchBar);
+document.getElementById("search-toggle")?.addEventListener("click", toggleSearchBar);
+document.getElementById("search-close")?.addEventListener("click", toggleSearchBar);
+document.getElementById("overlay-close")?.addEventListener("click", toggleSearchBar);
 
 // Event listener for keyboard shortcuts
 document.addEventListener("keydown", (event) => {

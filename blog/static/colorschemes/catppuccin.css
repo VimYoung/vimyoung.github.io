@@ -1,51 +1,55 @@
 /* Marmite Catppuccin Theme */
-/* picocss.com  */
-:root {
-    --pico-border-radius: 0;
-    --pico-card-box-shadow: none;
-}
-
-.content-tags a:where(a:not([role=button])),
-[role=link] {
-    --pico-color: revert;
-}
+/* For theme_template */
 
 /* Light Mode - Latte */
-[data-theme=light],
-:root:not([data-theme=dark]) {
-    --pico-background-color: #e6e9ef;
-    --pico-card-background-color: #eff1f5;
-    --pico-card-sectioning-background-color: var(--pico-background-color);
-    --pico-primary: #8839ef;
-    --pico-primary-hover: #ea76cb;
-    --pico-color: #4c4f69;
-    --pico-tag: #acb0be;
-    --pico-h1-color: var(--pico-primary);
-    --pico-code-background-color: var(--pico-background-color);
-    --pico-table-border-color: var(--pico-card-background-color);
-    --pico-color-azure-550: var(--pico-primary);
-}
-
-[data-theme=light] pre:has(> code.language-mermaid) {
-    background-color: var(--pico-card-background-color);
+[data-theme="light"],
+:root:not([data-theme="dark"]) {
+    --primary-color: #8839ef;
+    --secondary-color: #eff1f5;
+    --text-color: #4c4f69;
+    --link-color: #8839ef;
+    --link-hover-color: #ea76cb;
+    --border-color: #ccd0da;
+    --background-color: #e6e9ef;
+    --code-background: #dce0e8;
 }
 
 /* Dark Mode - Mocha */
-[data-theme=dark],
-:root:not([data-theme=light]) {
-    --pico-background-color: #1e1e2e;
-    --pico-card-background-color: #302d41;
-    --pico-card-sectioning-background-color: var(--pico-background-color);
-    --pico-primary: #cba6f7;
-    --pico-primary-hover: #f5c2e7;
-    --pico-color: #cdd6f4;
-    --pico-tag: #585b70;
-    --pico-h1-color: var(--pico-color);
-    --pico-code-background-color: var(--pico-background-color);
-    --pico-table-border-color: var(--pico-card-background-color);
-    --pico-color-azure-550: var(--pico-primary);
+[data-theme="dark"],
+:root:not([data-theme="light"]) {
+    --primary-color: #cba6f7;
+    --secondary-color: #302d41;
+    --text-color: #cdd6f4;
+    --link-color: #cba6f7;
+    --link-hover-color: #f5c2e7;
+    --border-color: #585b70;
+    --background-color: #1e1e2e;
+    --code-background: #313244;
 }
 
-[data-theme=dark] pre:has(> code.language-mermaid) {
-    background-color: var(--pico-code-color);
+/* System preference fallback */
+@media (prefers-color-scheme: light) {
+    :root:not([data-theme]) {
+        --primary-color: #8839ef;
+        --secondary-color: #eff1f5;
+        --text-color: #4c4f69;
+        --link-color: #8839ef;
+        --link-hover-color: #ea76cb;
+        --border-color: #ccd0da;
+        --background-color: #e6e9ef;
+        --code-background: #dce0e8;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) {
+        --primary-color: #cba6f7;
+        --secondary-color: #302d41;
+        --text-color: #cdd6f4;
+        --link-color: #cba6f7;
+        --link-hover-color: #f5c2e7;
+        --border-color: #585b70;
+        --background-color: #1e1e2e;
+        --code-background: #313244;
+    }
 }

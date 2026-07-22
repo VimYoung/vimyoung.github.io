@@ -1,49 +1,55 @@
 /* Marmite Gruvbox Theme */
-/* picocss.com  */
-:root {
-    --pico-border-radius: 0;
-    --pico-card-box-shadow: none;
+/* For theme_template */
+
+/* Light Mode */
+[data-theme="light"],
+:root:not([data-theme="dark"]) {
+    --primary-color: #b57614;
+    --secondary-color: #ebdbb2;
+    --text-color: #3c3836;
+    --link-color: #b57614;
+    --link-hover-color: #d79921;
+    --border-color: #d5c4a1;
+    --background-color: #fbf1c7;
+    --code-background: #ebdbb2;
 }
 
-.content-tags a:where(a:not([role=button])),
-[role=link] {
-    --pico-color: revert;
+/* Dark Mode */
+[data-theme="dark"],
+:root:not([data-theme="light"]) {
+    --primary-color: #d79921;
+    --secondary-color: #3c3836;
+    --text-color: #ebdbb2;
+    --link-color: #d79921;
+    --link-hover-color: #fabd2f;
+    --border-color: #504945;
+    --background-color: #282828;
+    --code-background: #3c3836;
 }
 
-[data-theme=light],
-:root:not([data-theme=dark]) {
-    --pico-background-color: #fbf1c7;
-    --pico-card-background-color: #ebdbb2;
-    --pico-card-sectioning-background-color: var(--pico-background-color);
-    --pico-primary: #b57614;
-    --pico-primary-hover: #d79921;
-    --pico-color: #3c3836;
-    --pico-tag: #7c6f64;
-    --pico-h1-color: var(--pico-primary);
-    --pico-code-background-color: var(--pico-background-color);
-    --pico-table-border-color: var(--pico-card-background-color);
-    --pico-color-azure-550: var(--pico-primary);
+/* System preference fallback */
+@media (prefers-color-scheme: light) {
+    :root:not([data-theme]) {
+        --primary-color: #b57614;
+        --secondary-color: #ebdbb2;
+        --text-color: #3c3836;
+        --link-color: #b57614;
+        --link-hover-color: #d79921;
+        --border-color: #d5c4a1;
+        --background-color: #fbf1c7;
+        --code-background: #ebdbb2;
+    }
 }
 
-[data-theme=light] pre:has(> code.language-mermaid) {
-    background-color: var(--pico-card-background-color);
-}
-
-[data-theme=dark],
-:root:not([data-theme=light]) {
-    --pico-background-color: #282828;
-    --pico-card-background-color: #3c3836;
-    --pico-card-sectioning-background-color: var(--pico-background-color);
-    --pico-primary: #d79921;
-    --pico-primary-hover: #fabd2f;
-    --pico-color: #ebdbb2;
-    --pico-tag: #a89984;
-    --pico-h1-color: var(--pico-color);
-    --pico-code-background-color: var(--pico-background-color);
-    --pico-table-border-color: var(--pico-card-background-color);
-    --pico-color-azure-550: var(--pico-primary);
-}
-
-[data-theme=dark] pre:has(> code.language-mermaid) {
-    background-color: var(--pico-code-color);
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) {
+        --primary-color: #d79921;
+        --secondary-color: #3c3836;
+        --text-color: #ebdbb2;
+        --link-color: #d79921;
+        --link-hover-color: #fabd2f;
+        --border-color: #504945;
+        --background-color: #282828;
+        --code-background: #3c3836;
+    }
 }
