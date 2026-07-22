@@ -2,7 +2,7 @@ name: VimYoung
 tagline: Coding as a path to peace
 url: ""
 https: null
-footer: <div>Blog Posts by VimYoung</div>
+footer: <br><div>Entering Terra Incognito Space !!</div><div>Made with <a href="https://marmite.blog/"> Marmite</a> and <a href="https://neovim.io/">NeoVim </a><div>
 language: ""
 pagination: 10
 pages_title: Pages
@@ -23,7 +23,7 @@ enable_related_content: false
 search_title: ""
 content_path: content
 site_path: ""
-templates_path: templates
+# templates_path: templates
 static_path: static
 media_path: media
 card_image: ""
@@ -36,11 +36,13 @@ menu:
   - - About
     - about.html
   - - Blog
-    - blog.html
+    - list.html
   - - Archive
     - archive.html
   - - Tags
     - base.html
+  - - RSS
+    - index.rss
   - - Invalid Page
     - invalid-page.html
 extra:
@@ -48,6 +50,8 @@ extra:
   colormodetoggle: true
   social_media:
     github: "VimYoung/Spell"
+  colorscheme: iceberg
+  colorscheme_toggle: true
 authors: {}
 streams: {}
 series: {}
@@ -59,8 +63,8 @@ source_repository: null
 image_provider: null
 markdown_parser: null
 code_highlight: null
-theme: null
-# theme: mytheme
+# theme: null
+theme: theme-base
 file_mapping: []
 enable_shortcodes: true
 shortcode_pattern: null

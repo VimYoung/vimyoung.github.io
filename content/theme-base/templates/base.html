@@ -54,7 +54,47 @@
     <div class="announcement">{{ announce }}</div>
     {% endif %}
 
-    <div class="container">
+    <div class="page-layout">
+        <div class= "container">
+          <!-- Hero Section -->
+          <!-- Create content/_hero.md to add a hero section -->
+          {% if hero is defined  and current_page == "index.html" %}
+          <section class="hero">
+              {{ hero }}
+          </section>
+          {% endif %}
+
+          <!-- Main Content -->
+          <!-- This is where page/post content will be rendered -->
+          <main class="main-content">
+              {% block main -%}{%- endblock %}
+          </main>
+
+          <!-- Sidebar -->
+          <!-- Create content/_sidebar.md to add a sidebar -->
+          {% if sidebar is defined %}
+          <aside class="sidebar">
+              {{ sidebar }}
+          </aside>
+          {% endif %}
+
+          <!-- Footer Section -->
+          <!-- Customize footer by creating content/_footer.md -->
+          {% if footer is defined %}
+            {{ footer}}
+          {% else %}
+          <footer class="site-footer">
+              {{ site.footer | safe }}
+          </footer>
+          {% endif %}
+
+          <!-- Custom HTML Tail Content -->
+          <!-- Use content/_htmltail.md to inject custom HTML here -->
+          {% if htmltail is defined %}
+          {{ htmltail }}
+          {% endif %}
+        </div>
+
         <!-- Header Section -->
         <!-- Customize header by creating content/_header.md -->
         {% if header is defined %}
@@ -62,15 +102,25 @@
         {% else %}
         <header class="site-header">
             <!-- Site Title with IndieWeb h-card -->
-            <div class="h-card">
-                <h1 class="site-title">
-                    <a href="{{url_for(path='')}}" class="p-name u-url">{% if site.logo_image %}<img src="{{url_for(path=site.logo_image)}}" alt="{{ site.name }}" class="u-photo">{% else %}{{ site.name }}{% endif %}</a>
+            <div class="h-card space-even">
+                <h1 class="site-title title-text">
+                  {% if site.logo_image %}
+                    <a href="{{url_for(path='')}}" class="p-name u-url ">
+                      <img class="u-photo logo-photo" src="{{url_for(path=site.logo_image)}}" alt="{{ site.name }}">
+                    </a>
+                  {% endif %}</a>
+                  {% if site.name is defined %}
+                    <a href="{{url_for(path='')}}" class="p-name u-url ">
+                    {{ site.name }}
+                    </a>
+                  {% endif %}
                 </h1>
 
                 <!-- Site Tagline -->
                 {% if site.tagline %}
                 <p class="site-tagline p-note">{{ site.tagline }}</p>
                 {% endif %}
+                <hr>
             </div>
 
             <!-- Navigation Menu -->
@@ -94,58 +144,31 @@
                     <!-- Enable search in marmite.yaml with enable_search: true -->
                     {% if site.enable_search %}
                     <li class="search-toggle">
-                        <button id="search-toggle">Search</button>
+                        <button class="nav-item" id="search-toggle">Search</button>
                     </li>
                     {% endif %}
+
                     <!-- Color Mode Toggle -->
                     <!-- Enable in marmite.yaml with extra: colormodetoggle: true -->
                     {% if site.extra.colormodetoggle %}
-                    <li><span class="theme-toggle" title="dark mode">&#9789;</span></li>
+                    <li style="cursor:pointer;" class="nav-item">
+                      <span class="theme-toggle" title="dark mode">
+                        &#9789;
+                      </span>
+                    </li>
                     {% endif %}
                 </ul>
             </nav>
             {% endif %}
-        </header>
-        {% endif %}
-
-        <!-- Hero Section -->
-        <!-- Create content/_hero.md to add a hero section -->
-        {% if hero is defined  and current_page == "index.html" %}
-        <section class="hero">
-            {{ hero }}
-        </section>
-        {% endif %}
-
-        <!-- Main Content -->
-        <!-- This is where page/post content will be rendered -->
-        <main class="main-content">
-            {% block main -%}{%- endblock %}
-        </main>
-
-        <!-- Sidebar -->
-        <!-- Create content/_sidebar.md to add a sidebar -->
-        {% if sidebar is defined %}
-        <aside class="sidebar">
-            {{ sidebar }}
-        </aside>
-        {% endif %}
-
-        <!-- Footer Section -->
-        <!-- Customize footer by creating content/_footer.md -->
-        {% if footer is defined %}
-           {{ footer}}
-        {% else %}
-        <footer class="site-footer">
-            {{ site.footer | safe }}
             <!-- Colorscheme Toggle -->
             <!-- Enable in marmite.yaml with extra: colorscheme_toggle: true -->
             {% if site.extra.colorscheme_toggle %}
-            <div class="colorscheme-toggle-div">
-                colorscheme: <select name="colorscheme" class="colorscheme-toggle"><option value="default">default</option></select>
-                <span class="theme-toggle" title="dark mode">&#9789;</span>
+            <div class="colorscheme-toggle-div active">
+                Colorscheme: <select name="colorscheme" class="colorscheme-toggle"><option value="default">default</option></select>
+                <!-- <span class="theme-toggle" title="dark mode">&#9789;</span> -->
             </div>
             {% endif %}
-        </footer>
+        </header>
         {% endif %}
 
         <!-- Search Overlay -->
@@ -187,11 +210,5 @@
     </script>
     {% endif %}
     {% endblock %}
-
-    <!-- Custom HTML Tail Content -->
-    <!-- Use content/_htmltail.md to inject custom HTML here -->
-    {% if htmltail is defined %}
-    {{ htmltail }}
-    {% endif %}
 </body>
 </html>

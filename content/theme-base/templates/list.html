@@ -76,16 +76,16 @@
                 </time>
 
                 {# Authors with IndieWeb h-card #}
-                {% if item.authors %}
-                <div class="item-authors">
-                    by
-                    {% for author in item.authors %}
-                    {% set slug = "author-" ~ author | trim | slugify %}
-                    {% set link = slug ~ ".html"%}
-                    <span class="h-card p-author"><a href="{{url_for(path=link)}}" class="item-author p-name u-url">{{ author }}</a></span>{% if not loop.last %}, {% endif %}
-                    {% endfor %}
-                </div>
-                {% endif %}
+                <!-- {% if item.authors %} -->
+                <!-- <div class="item-authors"> -->
+                <!--     by -->
+                <!--     {% for author in item.authors %} -->
+                <!--     {% set slug = "author-" ~ author | trim | slugify %} -->
+                <!--     {% set link = slug ~ ".html"%} -->
+                <!--     <span class="h-card p-author"><a href="{{url_for(path=link)}}" class="item-author p-name u-url">{{ author }}</a></span>{% if not loop.last %}, {% endif %} -->
+                <!--     {% endfor %} -->
+                <!-- </div> -->
+                <!-- {% endif %} -->
             </div>
             {% endif %}
         </header>
