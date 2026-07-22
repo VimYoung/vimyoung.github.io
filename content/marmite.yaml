@@ -43,8 +43,8 @@ menu:
     - base.html
   - - RSS
     - index.rss
-  - - Invalid Page
-    - invalid-page.html
+  - - Spell
+    - Spell
 extra:
   colormode: auto # auto, dark, or light
   colormodetoggle: true
