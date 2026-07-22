@@ -2,9 +2,9 @@
   "marmite_version": "0.3.1",
   "posts": 5,
   "pages": 11,
-  "generated_at": "2026-07-22 17:44:35.850895312 +05:30",
-  "timestamp": 1784722475,
-  "elapsed_time": 0.190860726,
+  "generated_at": "2026-07-22 18:01:19.238377804 +05:30",
+  "timestamp": 1784723479,
+  "elapsed_time": 0.164167971,
   "config": {
     "name": "VimYoung",
     "tagline": "Coding as a path to peace",
@@ -64,18 +64,18 @@
         "index.rss"
       ],
       [
-        "Invalid Page",
-        "invalid-page.html"
+        "Spell",
+        "Spell"
       ]
     ],
     "extra": {
+      "colorscheme": "iceberg",
+      "colormodetoggle": true,
+      "colormode": "auto",
       "social_media": {
         "github": "VimYoung/Spell"
       },
-      "colormode": "auto",
-      "colormodetoggle": true,
-      "colorscheme_toggle": true,
-      "colorscheme": "iceberg"
+      "colorscheme_toggle": true
     },
     "authors": {},
     "streams": {},
