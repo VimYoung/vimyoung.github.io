@@ -33,18 +33,18 @@ default_date_format: "%b %e, %Y"
 menu:
   - - Hello
     - index.html
-  - - About
-    - about.html
+  - - Whoami
+    - whoami.html
   - - Blog
     - list.html
   - - Archive
     - archive.html
   - - Tags
-    - base.html
+    - tags.html
   - - RSS
     - index.rss
   - - Spell
-    - Spell
+    - https://vimyoung.github.io/Spell
 extra:
   colormode: auto # auto, dark, or light
   colormodetoggle: true
