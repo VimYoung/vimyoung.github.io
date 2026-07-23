@@ -68,7 +68,16 @@
 
     {# Content Title #}
     <header class="content-header">
-        <h1 class="content-title">{{ content.title }}</h1>
+        {% set is_404 = false %}
+        {% if content.slug == "404" or content.slug == "_404" %}
+            {% set is_404 = true %}
+        {% endif %}
+        {% if content.source_path is string and (content.source_path | replace(from='_404.md', to='') != content.source_path) %}
+            {% set is_404 = true %}
+        {% endif %}
+        {% if not is_404 %}
+            <h1 class="content-title">{{ content.title }}</h1>
+        {% endif %}
 
         {# Content Metadata (for posts with dates) #}
         {% if content.date %}
