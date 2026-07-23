@@ -14,6 +14,11 @@
   src: url("./AtkinsonHyperlegibleNext-Regular.woff2");
 }
 
+@font-face {
+  font-family: "Averia Serif Libre";
+  src: url("./AveriaSerifLibre-Regular.woff2");
+}
+
 /* CSS Custom Properties for easy theming */
 :root {
   --primary-color: #000;
@@ -130,6 +135,7 @@ h3,
 h4,
 h5,
 h6 {
+  font-family: "Averia Serif Libre";
   margin-top: var(--spacing-lg);
   margin-bottom: var(--spacing-md);
   line-height: 1.2;
@@ -844,7 +850,7 @@ a:hover {
     justify-content: flex-start; /* align items from left */
     background-color: var(--secondary-color);
     z-index: 150;
-    box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
   }
 
   /* Mobile header height variable */
@@ -933,7 +939,7 @@ a:hover {
     background-color: var(--secondary-color);
     border: 1px solid var(--border-color);
     border-radius: 8px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
     z-index: 200;
   }
 
@@ -977,7 +983,6 @@ a:hover {
     display: none;
   }
 }
-
 
 /* Small tweak for very small devices */
 @media (max-width: 420px) {
